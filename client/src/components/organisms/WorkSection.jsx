@@ -29,7 +29,7 @@ export default function WorkSection({ projects = [] }) {
               </div>
               <div className="project-arrow">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                  <path d="M4 11H18M18 11L11 4M18 11L11 18" stroke="currentColor" stroke-width="1.5" strokeLinecap="round" />
+                  <path d="M4 11H18M18 11L11 4M18 11L11 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
               </div>
             </div>

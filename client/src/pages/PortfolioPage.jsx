@@ -16,7 +16,7 @@ import fallbackData from '../data/portfolioData.json';
 
 const API_BASE_URL = 'http://localhost:5001/api';
 
-export default function PortfolioPage() {
+export default function PortfolioPage({ onEnterDevMode }) {
   // Initialize state directly with the local data to bypass loading screen delays
   const [data, setData] = useState(fallbackData);
 
@@ -69,7 +69,7 @@ export default function PortfolioPage() {
     <>
       <CustomCursor />
       <Navbar initials={portfolioData.profile?.initials} />
-      <HeroSection profile={portfolioData.profile} />
+      <HeroSection profile={portfolioData.profile} onEnterDevMode={onEnterDevMode} />
       <MarqueeSection items={portfolioData.marquee} />
       <AboutSection stats={portfolioData.stats} />
       <WorkSection projects={portfolioData.projects} />

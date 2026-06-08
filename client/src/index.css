@@ -241,6 +241,99 @@ nav {
     border-color: var(--red)
 }
 
+/* Developer portal icon — positioned top-right, clear of the header with a flowing border stroke animation */
+.dev-portal-icon {
+    position: absolute;
+    top: 7rem;
+    right: 3rem;
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #0A0A0A;
+    border-radius: 4px;
+    color: rgba(245, 240, 232, .4);
+    cursor: pointer;
+    transition: all .3s ease;
+    z-index: 90;
+    border: none;
+    outline: none;
+}
+
+/* Base border trace SVG shape inside button container */
+.dev-border-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.dev-border-rect {
+    fill: none;
+    stroke: rgba(245, 240, 232, .12);
+    stroke-width: 1.5;
+    rx: 4;
+    ry: 4;
+    transition: stroke .3s ease;
+}
+
+/* Flowing dash effect */
+.dev-border-flow {
+    fill: none;
+    stroke: #00e85e;
+    stroke-width: 1.5;
+    rx: 4;
+    ry: 4;
+    stroke-dasharray: 40 120;
+    stroke-dashoffset: 160;
+    animation: devDashFlow 3s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes devDashFlow {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.dev-portal-icon:hover {
+    color: #00ff66;
+}
+
+.dev-portal-icon:hover .dev-border-rect {
+    stroke: rgba(0, 255, 102, .2);
+}
+
+.dev-portal-icon:hover .dev-border-flow {
+    opacity: 1;
+    stroke-width: 2;
+    /* Speed up is removed to keep animation timeline continuous, or we keep it running at 3s to be fully seamless */
+}
+
+.dev-portal-icon.active {
+    color: #00ff66;
+}
+
+.dev-portal-icon.active .dev-border-rect {
+    stroke: #00ff66;
+}
+
+.dev-portal-icon.active .dev-border-flow {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .dev-portal-icon {
+        top: 6rem;
+        right: 1.5rem;
+        width: 36px;
+        height: 36px;
+    }
+}
+
 /* MARQUEE */
 .marquee-section {
     overflow: hidden;
@@ -436,6 +529,130 @@ nav {
     letter-spacing: -.02em
 }
 
+/* WORK */
+#work {
+    padding: 8rem 3rem;
+    border-top: 1px solid var(--border)
+}
+
+.section-count {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: rgba(245, 240, 232, .2);
+    letter-spacing: .1em;
+    padding-bottom: .5rem
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column
+}
+
+.project-item {
+    display: grid;
+    grid-template-columns: 80px 2fr 1fr 1fr 60px;
+    align-items: center;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--border);
+    position: relative;
+    text-decoration: none;
+    color: var(--white);
+    overflow: hidden
+}
+
+.project-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background: rgba(232, 57, 29, .04);
+    transition: width .4s
+}
+
+.project-item:hover::before {
+    width: 100%
+}
+
+.project-item:last-child {
+    border-bottom: 1px solid var(--border)
+}
+
+.project-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: .9rem;
+    color: rgba(245, 240, 232, .18);
+    letter-spacing: .1em;
+    transition: color .3s
+}
+
+.project-item:hover .project-num {
+    color: var(--red)
+}
+
+.project-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 4vw, 52px);
+    text-transform: uppercase;
+    line-height: 1
+}
+
+.project-sub {
+    font-size: .78rem;
+    color: rgba(245, 240, 232, .33);
+    margin-top: .4rem;
+    line-height: 1.5;
+    max-width: 420px
+}
+
+.project-type {
+    display: inline-flex;
+    background: rgba(245, 240, 232, .05);
+    border: 1px solid rgba(245, 240, 232, .09);
+    padding: .3rem .9rem;
+    font-size: .62rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, .4);
+    width: fit-content
+}
+
+.project-type.red {
+    background: rgba(232, 57, 29, .12);
+    border-color: rgba(232, 57, 29, .22);
+    color: var(--red)
+}
+
+.project-result strong {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--white)
+}
+
+.project-result span {
+    font-size: .72rem;
+    color: rgba(245, 240, 232, .3)
+}
+
+.project-arrow {
+    opacity: .18;
+    transition: all .3s;
+    justify-self: end;
+    color: var(--red)
+}
+
+.project-item:hover .project-arrow {
+    opacity: 1;
+    transform: translateX(4px)
+}
+
 /* TOOLS */
 #tools {
     padding: 8rem 3rem;
@@ -621,6 +838,10 @@ nav {
     transition: color .3s
 }
 
+.acc-trigger:hover .acc-index {
+    color: var(--red)
+}
+
 .acc-role {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 800;
@@ -630,6 +851,10 @@ nav {
     color: var(--white);
     line-height: 1;
     transition: color .3s
+}
+
+.acc-trigger:hover .acc-role {
+    color: rgba(245, 240, 232, .9)
 }
 
 .acc-company {
@@ -685,15 +910,22 @@ nav {
     opacity: 1
 }
 
+.acc-item.open .acc-index {
+    color: var(--red)
+}
+
 .acc-body {
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows .4s cubic-bezier(.4, 0, .2, 1);
-    overflow: hidden
 }
 
 .acc-item.open .acc-body {
     grid-template-rows: 1fr
+}
+
+.acc-inner {
+    overflow: hidden
 }
 
 .acc-content {
@@ -1002,6 +1234,25 @@ nav {
     transition: background .3s
 }
 
+.skill-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--red);
+    transition: width .4s
+}
+
+.skill-card:hover::before {
+    width: 100%
+}
+
+.skill-card:hover {
+    background: rgba(232, 57, 29, .04)
+}
+
 .skill-icon {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
@@ -1048,6 +1299,13 @@ nav {
     margin-bottom: 2rem
 }
 
+.contact-title em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--red)
+}
+
 .contact-text {
     color: rgba(245, 240, 232, .4);
     font-size: .92rem;
@@ -1069,9 +1327,68 @@ nav {
     overflow: hidden
 }
 
+.contact-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--red);
+    transform: scaleY(0);
+    transition: transform .3s;
+    transform-origin: bottom
+}
+
+.contact-link:hover::before {
+    transform: scaleY(1)
+}
+
 .contact-link:hover {
     border-color: rgba(232, 57, 29, .26);
     padding-left: 2rem
+}
+
+.contact-link-icon {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--red);
+    width: 28px;
+    text-align: center
+}
+
+.contact-link-label {
+    font-size: .6rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, .24);
+    display: block;
+    margin-bottom: .1rem
+}
+
+.contact-link-text {
+    font-size: .88rem;
+    color: rgba(245, 240, 232, .58)
+}
+
+.contact-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative
+}
+
+.contact-big {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 20vw;
+    line-height: .8;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(245, 240, 232, .04);
+    text-transform: uppercase;
+    letter-spacing: -.04em;
+    user-select: none
 }
 
 .contact-badge {
@@ -1088,12 +1405,48 @@ nav {
     animation: rotateBadge 14s linear infinite
 }
 
+.contact-badge span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    animation: rotateBadge 14s linear infinite reverse
+}
+
+.contact-badge small {
+    font-size: .58rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    opacity: .7;
+    margin-top: .25rem;
+    animation: rotateBadge 14s linear infinite reverse
+}
+
 footer {
     border-top: 1px solid var(--border);
     padding: 2rem 3rem;
     display: flex;
     align-items: center;
     justify-content: space-between
+}
+
+.footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: .1em;
+    text-transform: uppercase
+}
+
+.footer-logo span {
+    color: var(--red)
+}
+
+.footer-copy {
+    font-size: .7rem;
+    color: rgba(245, 240, 232, .18);
+    letter-spacing: .08em
 }
 
 /* ANIMATIONS */
