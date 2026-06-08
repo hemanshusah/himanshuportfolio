@@ -1,15 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import JourneyCard from '../molecules/JourneyCard';
 import EducationCard from '../molecules/EducationCard';
-import useIntersectionObserver from '../../hooks/useIntersectionObserver';
-import './JourneySection.css';
 
 export default function JourneySection({ journey = {} }) {
-  const [revealHeaderRef, isHeaderRevealed] = useIntersectionObserver();
-  const [revealEduHeaderRef, isEduHeaderRevealed] = useIntersectionObserver();
-  
   const [spineHeight, setSpineHeight] = useState('0%');
-  
   const timelineWrapRef = useRef(null);
   const experiences = journey.experience || [];
   const educations = journey.education || [];
@@ -35,7 +29,7 @@ export default function JourneySection({ journey = {} }) {
     <section id="journey">
       <div className="journey-bg-word">Journey</div>
       
-      <div ref={revealHeaderRef} className={`journey-header reveal ${isHeaderRevealed ? 'visible' : ''}`}>
+      <div className="journey-header reveal">
         <div>
           <p className="section-label">Experience</p>
           <h2 className="section-title">
@@ -54,7 +48,7 @@ export default function JourneySection({ journey = {} }) {
         </div>
 
         {experiences.map((exp) => (
-          <div className="journey-entry visible" key={exp.id}>
+          <div className="journey-entry" key={exp.id}>
             <div className="journey-dot"></div>
             <div className="journey-connector"></div>
             <JourneyCard item={exp} />
@@ -63,7 +57,7 @@ export default function JourneySection({ journey = {} }) {
 
         {educations.length > 0 && (
           <>
-            <div ref={revealEduHeaderRef} className={`journey-edu-divider reveal ${isEduHeaderRevealed ? 'visible' : ''}`}>
+            <div className="journey-edu-divider reveal">
               <div className="edu-line"></div>
               <div className="edu-word">Education</div>
               <div className="edu-line"></div>

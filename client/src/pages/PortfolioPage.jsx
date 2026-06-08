@@ -33,6 +33,31 @@ export default function PortfolioPage() {
       });
   }, []);
 
+  // REVEAL ANIMATIONS GLOBAL OBSERVER
+  useEffect(() => {
+    if (loading || !data) return;
+
+    // Use a small timeout to let React finish rendering the DOM
+    const timer = setTimeout(() => {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.08 });
+
+      const targets = document.querySelectorAll('.reveal, .journey-entry, .edu-card');
+      targets.forEach((el) => obs.observe(el));
+
+      return () => {
+        targets.forEach((el) => obs.unobserve(el));
+      };
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [loading, data]);
+
   if (loading) {
     return (
       <div style={{
