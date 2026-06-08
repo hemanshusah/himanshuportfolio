@@ -45,15 +45,15 @@ export default function DeveloperPage({ onBackToPortfolio }) {
     };
   }, []);
 
-  // Generate 6 months of contributions history (26 weeks) — Deterministic on refresh using LCG pseudo-random seed
+  // Generate 6 months of contributions history (26 weeks) — Instant Deterministic Fallback with Background Real-time API Fetch
   useEffect(() => {
     const totalWeeks = 26;
     const itemsPerWeek = 7;
     const totalDays = totalWeeks * itemsPerWeek;
     
-    // Seeded pseudo-random generator (Linear Congruential Generator)
+    // 1. GENERATE INSTANT DETERMINISTIC FALLBACK CALENDAR
     const seedRandom = (seed) => {
-      const m = 0x80000000; // 2**31
+      const m = 0x80000000;
       const a = 1103515245;
       const c = 12345;
       let state = seed ? seed : Math.floor(Math.random() * 1000);
@@ -63,42 +63,74 @@ export default function DeveloperPage({ onBackToPortfolio }) {
       };
     };
 
-    const mockData = Array.from({ length: totalDays }, (_, index) => {
+    const fallbackData = Array.from({ length: totalDays }, (_, index) => {
       const date = new Date();
       date.setDate(date.getDate() - (totalDays - index));
       const dateStr = date.toISOString().split('T')[0];
-      
-      // Generate unique seed integer from date string (e.g., 2026-06-09 -> 20260609)
       const dateNum = parseInt(dateStr.replace(/-/g, ''), 10);
       const nextRandom = seedRandom(dateNum);
-
-      const dayOfWeek = date.getDay(); // 0 is Sunday, 6 is Saturday
+      const dayOfWeek = date.getDay();
       let count = 0;
       
-      // Use seeded pseudo-random instead of Math.random() for deterministic counts
       const randomSeed = nextRandom();
-      if (dayOfWeek !== 0 && dayOfWeek !== 6) { // Weekday
-        if (randomSeed > 0.85) count = Math.floor(nextRandom() * 8) + 4; // High activity day
-        else if (randomSeed > 0.4) count = Math.floor(nextRandom() * 4) + 1; // Mild activity day
-      } else { // Weekend
-        if (randomSeed > 0.9) count = Math.floor(nextRandom() * 3) + 1; // Occasional weekend push
+      if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+        if (randomSeed > 0.85) count = Math.floor(nextRandom() * 8) + 4;
+        else if (randomSeed > 0.4) count = Math.floor(nextRandom() * 4) + 1;
+      } else {
+        if (randomSeed > 0.9) count = Math.floor(nextRandom() * 3) + 1;
       }
       
-      // Determine green level matching standard Github contribution chart coloring
       let level = 0;
       if (count > 0 && count <= 2) level = 1;
       else if (count > 2 && count <= 5) level = 2;
       else if (count > 5 && count <= 8) level = 3;
       else if (count > 8) level = 4;
 
-      return {
-        date: dateStr,
-        count,
-        level
-      };
+      return { date: dateStr, count, level };
     });
 
-    setContributions(mockData);
+    // Instantly seed state so the page loads with zero layout shifts or delays
+    setContributions(fallbackData);
+
+    // 2. FETCH REAL-TIME GITHUB CALENDAR IN BACKGROUND
+    const githubUsername = 'hemanshusah';
+    fetch(`https://github-contributions-api.deno.dev/${githubUsername}.json`)
+      .then((res) => {
+        if (!res.ok) throw new Error('API fetch unsuccessful');
+        return res.json();
+      })
+      .then((apiData) => {
+        if (!apiData || !apiData.contributions) return;
+
+        // Flatten the contribution calendar into a single list of days
+        const allDays = apiData.contributions.flat();
+        if (allDays.length === 0) return;
+
+        // Get past 6 months of calendar cells matching our total days count
+        const realDays = allDays.slice(-totalDays);
+        if (realDays.length === 0) return;
+
+        // Map API response fields into our local dataset
+        const mappedData = realDays.map((day) => {
+          // Map color levels (0-4)
+          let level = 0;
+          if (day.count > 0 && day.count <= 2) level = 1;
+          else if (day.count > 2 && day.count <= 5) level = 2;
+          else if (day.count > 5 && day.count <= 8) level = 3;
+          else if (day.count > 8) level = 4;
+
+          return {
+            date: day.date,
+            count: day.count,
+            level: level
+          };
+        });
+
+        setContributions(mappedData);
+      })
+      .catch((err) => {
+        console.warn('Real-time GitHub API offline or restricted. Running on instant deterministic fallback.', err.message);
+      });
   }, []);
 
   const technicalSkills = [
