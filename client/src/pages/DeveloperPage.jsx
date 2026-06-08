@@ -8,6 +8,41 @@ export default function DeveloperPage({ onBackToPortfolio }) {
   useEffect(() => {
     window.scrollTo(0, 0);
     requestAnimationFrame(() => setIsVisible(true));
+
+    // Dynamic SEO updates for the Developer Workspace route
+    document.title = "Himanshu Sah — Full Stack Developer & Automation Engineer";
+    
+    // Create or update meta description
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = "description";
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = "Explore Himanshu Sah's development workspace: featuring projects like Vibecam, foundershub, automated event booking engines, and custom script integrations.";
+
+    // OpenGraph social preview tags
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    if (!ogTitle) {
+      ogTitle = document.createElement('meta');
+      ogTitle.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitle);
+    }
+    ogTitle.content = "Himanshu Sah — Developer Workspace & Featured Projects";
+
+    let ogDesc = document.querySelector('meta[property="og:description"]');
+    if (!ogDesc) {
+      ogDesc = document.createElement('meta');
+      ogDesc.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDesc);
+    }
+    ogDesc.content = "Explore real-time telemetry metrics, automated tools, and full-stack software repos engineered by Himanshu Sah.";
+
+    return () => {
+      // Revert back to main strategic portfolio SEO when route unmounts
+      document.title = "Himanshu Sah — Brand Strategist & Designer";
+      if (metaDesc) metaDesc.content = "I help founders transform their products into authentic brands — crafting identities and strategies that resonate deeply.";
+    };
   }, []);
 
   // Generate 6 months of contributions history (26 weeks)
