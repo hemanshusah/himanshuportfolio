@@ -80,10 +80,20 @@
     background: var(--dev-green-dim);
 }
 
-/* ── HERO ── */
-.dev-hero {
+/* ── HERO GRID ── */
+.dev-hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
     padding: 6rem 3rem 5rem;
-    max-width: 900px;
+    align-items: center;
+}
+
+@media (max-width: 1024px) {
+    .dev-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
 }
 
 .dev-hero-label {
@@ -129,6 +139,95 @@
     max-width: 560px;
     font-weight: 300;
     margin: 0;
+}
+
+/* ── GITHUB CHART ── */
+.github-chart-container {
+    background: var(--dev-surface);
+    border: 1px solid var(--dev-border);
+    padding: 2rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.github-chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.github-chart-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    color: var(--dev-text-dim);
+    text-transform: uppercase;
+}
+
+.github-total-commits {
+    font-size: 0.85rem;
+    color: var(--dev-green);
+    font-weight: 700;
+}
+
+.github-grid-scroll {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.github-grid-scroll::-webkit-scrollbar {
+    height: 4px;
+}
+
+.github-grid-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.github-grid-scroll::-webkit-scrollbar-thumb {
+    background: var(--dev-border);
+    border-radius: 2px;
+}
+
+.github-grid-weeks {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 4px;
+}
+
+.github-grid-week {
+    display: grid;
+    grid-template-rows: repeat(7, 10px);
+    gap: 4px;
+}
+
+.github-grid-day {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    transition: background 0.25s ease;
+}
+
+.github-grid-day[data-level="1"] { background: #0e4429; }
+.github-grid-day[data-level="2"] { background: #006d32; }
+.github-grid-day[data-level="3"] { background: #26a641; }
+.github-grid-day[data-level="4"] { background: #39d353; }
+
+.github-chart-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    color: var(--dev-text-dim);
+}
+
+.github-legend {
+    display: flex;
+    gap: 3px;
 }
 
 /* ── STATS ── */

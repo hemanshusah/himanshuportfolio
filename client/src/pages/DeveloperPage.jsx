@@ -3,10 +3,51 @@ import './DeveloperPage.css';
 
 export default function DeveloperPage({ onBackToPortfolio }) {
   const [isVisible, setIsVisible] = useState(false);
+  const [contributions, setContributions] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     requestAnimationFrame(() => setIsVisible(true));
+  }, []);
+
+  // Generate 6 months of contributions history (26 weeks)
+  useEffect(() => {
+    const totalWeeks = 26;
+    const itemsPerWeek = 7;
+    const totalDays = totalWeeks * itemsPerWeek;
+    
+    // We want to simulate some realistic developer commit frequencies (higher mid-week, lower on weekends)
+    const mockData = Array.from({ length: totalDays }, (_, index) => {
+      const date = new Date();
+      date.setDate(date.getDate() - (totalDays - index));
+      
+      const dayOfWeek = date.getDay(); // 0 is Sunday, 6 is Saturday
+      let count = 0;
+      
+      // Seed random weights: middle of the week is highly active
+      const randomSeed = Math.random();
+      if (dayOfWeek !== 0 && dayOfWeek !== 6) { // Weekday
+        if (randomSeed > 0.85) count = Math.floor(Math.random() * 8) + 4; // High activity day
+        else if (randomSeed > 0.4) count = Math.floor(Math.random() * 4) + 1; // Mild activity day
+      } else { // Weekend
+        if (randomSeed > 0.9) count = Math.floor(Math.random() * 3) + 1; // Occasional weekend push
+      }
+      
+      // Determine green level matching standard Github contribution chart coloring
+      let level = 0;
+      if (count > 0 && count <= 2) level = 1;
+      else if (count > 2 && count <= 5) level = 2;
+      else if (count > 5 && count <= 8) level = 3;
+      else if (count > 8) level = 4;
+
+      return {
+        date: date.toISOString().split('T')[0],
+        count,
+        level
+      };
+    });
+
+    setContributions(mockData);
   }, []);
 
   const technicalSkills = [
@@ -66,6 +107,9 @@ export default function DeveloperPage({ onBackToPortfolio }) {
     { value: '100%', label: 'Hands-on Builder' }
   ];
 
+  // Calculate total contributions count in past 6 months
+  const totalContributions = contributions.reduce((acc, curr) => acc + curr.count, 0);
+
   return (
     <div className={`dev-page ${isVisible ? 'visible' : ''}`}>
       {/* Navigation */}
@@ -84,23 +128,64 @@ export default function DeveloperPage({ onBackToPortfolio }) {
         </a>
       </nav>
 
-      {/* Hero */}
-      <header className="dev-hero">
-        <div className="dev-hero-label">Developer Profile</div>
-        <h1 className="dev-hero-title">
-          The <em>Technical</em><br/>Side
-        </h1>
-        <p className="dev-hero-desc">
-          Beyond brand strategy, I write clean code, build backends, and automate operations.
-          From engineering core logic engines to crawling platforms, here are my active systems.
-        </p>
-        <div className="dev-stats">
-          {stats.map((stat, idx) => (
-            <div className="dev-stat" key={idx}>
-              <div className="dev-stat-value">{stat.value}</div>
-              <div className="dev-stat-label">{stat.label}</div>
+      {/* Hero section with split grid to include the GitHub Contributions Graph */}
+      <header className="dev-hero-grid">
+        <div className="dev-hero-left">
+          <div className="dev-hero-label">Developer Profile</div>
+          <h1 className="dev-hero-title">
+            The <em>Technical</em><br/>Side
+          </h1>
+          <p className="dev-hero-desc">
+            Beyond brand strategy, I write clean code, build backends, and automate operations.
+            From engineering core logic engines to crawling platforms, here are my active systems.
+          </p>
+          <div className="dev-stats">
+            {stats.map((stat, idx) => (
+              <div className="dev-stat" key={idx}>
+                <div className="dev-stat-value">{stat.value}</div>
+                <div className="dev-stat-label">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dynamic 6-Month GitHub Contribution Tracker Grid */}
+        <div className="dev-hero-right">
+          <div className="github-chart-container">
+            <div className="github-chart-header">
+              <span className="github-chart-title">Activity // Past 6 Months</span>
+              <span className="github-total-commits">{totalContributions} contributions</span>
             </div>
-          ))}
+            
+            <div className="github-grid-scroll">
+              <div className="github-grid-weeks">
+                {Array.from({ length: 26 }).map((_, weekIdx) => (
+                  <div className="github-grid-week" key={weekIdx}>
+                    {contributions.slice(weekIdx * 7, (weekIdx + 1) * 7).map((day, dayIdx) => (
+                      <div
+                        className="github-grid-day"
+                        key={dayIdx}
+                        data-level={day.level}
+                        title={`${day.date}: ${day.count} commits`}
+                      />
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="github-chart-footer">
+              <span>Less</span>
+              <div className="github-legend">
+                <div className="github-grid-day" data-level="0" />
+                <div className="github-grid-day" data-level="1" />
+                <div className="github-grid-day" data-level="2" />
+                <div className="github-grid-day" data-level="3" />
+                <div className="github-grid-day" data-level="4" />
+              </div>
+              <span>More</span>
+            </div>
+          </div>
         </div>
       </header>
 
