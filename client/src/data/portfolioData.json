@@ -2,12 +2,12 @@
   "profile": {
     "name": "Himanshu Sah",
     "initials": "HS",
-    "role": "Brand Strategist & Designer",
-    "description": "I help founders transform their products into authentic brands — crafting identities and strategies that resonate deeply and build lasting connections.",
+    "role": "Marketer with Development Background",
+    "description": "I help founders transform their products into authentic brands crafting identities and strategies that resonate deeply and build lasting connections.",
     "email": "hemanshuhas@gmail.com",
-    "phone": "+91 80766 46898",
-    "linkedin": "https://linkedin.com/in/himanshu-sah",
-    "location": "Bengaluru, India"
+    "phone": "+977 9860106444",
+    "linkedin": "https://linkedin.com/in/himanshusah",
+    "location": "Kathmandu, Nepal"
   },
   "stats": [
     {
@@ -18,7 +18,7 @@
     {
       "value": 314,
       "suffix": "+",
-      "label": "Community Built"
+      "label": "Member Community Built"
     },
     {
       "value": 100,
@@ -59,7 +59,7 @@
       "name": "Greenverse",
       "sub": "End-to-end branding & B2G GTM for a plant-based air purifier brand. 100+ assets, pitch deck, fundraising support, institutional sales.",
       "type": "Branding",
-      "tagClass": "",
+      "tagClass": "red",
       "result": "100+",
       "resultSub": "Warm leads generated"
     },
@@ -68,7 +68,7 @@
       "name": "Startup Spotlight",
       "sub": "Exclusive paid startup podcast. 8-day shoot, 7 founders, 14 promo creatives, complete narrative curation & production.",
       "type": "Program",
-      "tagClass": "red",
+      "tagClass": "",
       "result": "48",
       "resultSub": "Registrations · ₹15K ticket"
     }
@@ -109,8 +109,14 @@
       "tagClass": "",
       "date": "2024–25",
       "highlights": [
-        { "num": "350K+", "label": "CAN Info-Tech target audience" },
-        { "num": "NPR 1,500", "label": "Positioned price vs grey market NPR 499–999" }
+        {
+          "num": "350K+",
+          "label": "CAN Info-Tech target audience"
+        },
+        {
+          "num": "NPR 1,500",
+          "label": "Positioned price vs grey market NPR 499–999"
+        }
       ],
       "bullets": [
         "Designed Nepal GTM using the IN-SPAN diplomatic framework",
@@ -120,7 +126,13 @@
         "Identified CAN Info-Tech 2026 (350,000+ visitors) as primary acquisition event and Nepal Bharat Library (500-seat auditorium) as press launch venue",
         "Positioned Waystars as Nepal's first officially compliant AI platform — framing it as a knowledge tool, not just a commercial product"
       ],
-      "skills": [ "Market Research", "Diplomatic GTM", "Partnership Strategy", "Competitive Positioning", "Community Mapping" ]
+      "skills": [
+        "Market Research",
+        "Diplomatic GTM",
+        "Partnership Strategy",
+        "Competitive Positioning",
+        "Community Mapping"
+      ]
     },
     {
       "id": "acc2",
@@ -131,9 +143,18 @@
       "tagClass": "red",
       "date": "2023–24",
       "highlights": [
-        { "num": "₹30 Lac", "label": "Revenue on ₹15K budget" },
-        { "num": "200×", "label": "Return on investment" },
-        { "num": "314", "label": "Community members built" }
+        {
+          "num": "₹30 Lac",
+          "label": "Revenue on ₹15K budget"
+        },
+        {
+          "num": "200×",
+          "label": "Return on investment"
+        },
+        {
+          "num": "314",
+          "label": "Community members built"
+        }
       ],
       "bullets": [
         "Designed a word-of-mouth first GTM approach leveraging existing founder networks and targeted outreach to curate the right room",
@@ -144,7 +165,14 @@
         "Built BaithakX's complete brand identity from scratch — logo, colour system, typography, and creative assets across social, venue, and print collaterals",
         "Positioned as an exclusive, invite-only community to create perceived scarcity and drive demand through aspiration rather than mass outreach"
       ],
-      "skills": [ "Brand Identity", "Community Building", "Word-of-Mouth GTM", "Partnership Management", "Event Production", "Revenue Strategy" ]
+      "skills": [
+        "Brand Identity",
+        "Community Building",
+        "Word-of-Mouth GTM",
+        "Partnership Management",
+        "Event Production",
+        "Revenue Strategy"
+      ]
     },
     {
       "id": "acc3",
@@ -155,8 +183,14 @@
       "tagClass": "",
       "date": "2023",
       "highlights": [
-        { "num": "100+", "label": "Design assets across 4 platforms" },
-        { "num": "100+", "label": "Warm leads generated" }
+        {
+          "num": "100+",
+          "label": "Design assets across 4 platforms"
+        },
+        {
+          "num": "100+",
+          "label": "Warm leads generated"
+        }
       ],
       "bullets": [
         "Built complete brand identity from scratch — defining visual language, tone, and brand story across 100+ assets including standees, banners, event collaterals, and a product catalogue",
@@ -165,7 +199,13 @@
         "Generated 100+ warm leads through targeted outreach and strategic institutional partnerships, converting several into multi-order sales",
         "Designed a comprehensive investor pitch deck showcasing Greenverse's value proposition and growth potential, supporting fundraising conversations"
       ],
-      "skills": [ "Brand Identity Design", "B2G GTM", "Sales & Partnerships", "Pitch Deck Design", "Print Design" ]
+      "skills": [
+        "Brand Identity Design",
+        "B2G GTM",
+        "Sales & Partnerships",
+        "Pitch Deck Design",
+        "Print Design"
+      ]
     },
     {
       "id": "acc4",
@@ -176,9 +216,18 @@
       "tagClass": "red",
       "date": "2023",
       "highlights": [
-        { "num": "48", "label": "Registrations generated" },
-        { "num": "₹15K", "label": "Ticket size per startup" },
-        { "num": "8 Days", "label": "Shoot across 7 founders" }
+        {
+          "num": "48",
+          "label": "Registrations generated"
+        },
+        {
+          "num": "₹15K",
+          "label": "Ticket size per startup"
+        },
+        {
+          "num": "8 Days",
+          "label": "Shoot across 7 founders"
+        }
       ],
       "bullets": [
         "Crafted the entire program narrative — from initial paperwork and curation to story writing, every detail handled in-house",
@@ -188,7 +237,14 @@
         "Editing outsourced due to a last-minute budget cut — but production quality was maintained throughout",
         "With a paid podcast model and efficient promotional strategy, the program generated a strong reception — confirming the program's potential for future iterations"
       ],
-      "skills": [ "Program Curation", "Storytelling", "Video Direction", "Venue & Production", "Brand Promotion", "Monetisation" ]
+      "skills": [
+        "Program Curation",
+        "Storytelling",
+        "Video Direction",
+        "Venue & Production",
+        "Brand Promotion",
+        "Monetisation"
+      ]
     },
     {
       "id": "acc5",
@@ -205,7 +261,13 @@
         "Designed the MeitY Startup Hub newsletter — published at msm.meity.gov.in",
         "Created biography designs, report booklets, and the official Startup Kumbh booklet (B.K. Birla SDG Awards, March 2024)"
       ],
-      "skills": [ "Event Design", "Print Collateral", "Partner Activation", "Newsletter Design", "Booklet Design" ]
+      "skills": [
+        "Event Design",
+        "Print Collateral",
+        "Partner Activation",
+        "Newsletter Design",
+        "Booklet Design"
+      ]
     }
   ],
   "capabilities": [
