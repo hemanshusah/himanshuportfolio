@@ -153,8 +153,11 @@ export default function DeveloperPage({ onBackToPortfolio }) {
         <div className="dev-hero-right">
           <div className="github-chart-container">
             <div className="github-chart-header">
-              <span className="github-chart-title">Activity // Past 6 Months</span>
-              <span className="github-total-commits">{totalContributions} contributions</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span className="github-live-dot" />
+                <span className="github-chart-title">Activity // Live Feed</span>
+              </div>
+              <span className="github-total-commits">{totalContributions} commits</span>
             </div>
             
             <div className="github-grid-scroll">
