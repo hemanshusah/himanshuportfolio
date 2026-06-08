@@ -1,0 +1,40 @@
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  text-decoration: none;
+  color: var(--white);
+  padding: 1.2rem 1.5rem;
+  border: 1px solid var(--border);
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+.contact-link:hover {
+  border-color: rgba(232, 57, 29, .26);
+  padding-left: 2rem;
+}
+
+.contact-link-icon {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: var(--red);
+  line-height: 1;
+}
+
+.contact-link-label {
+  font-size: .62rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, .3);
+}
+
+.contact-link-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white);
+  margin-top: .2rem;
+}

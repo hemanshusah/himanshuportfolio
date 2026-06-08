@@ -1,0 +1,36 @@
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.footer-logo span {
+  color: var(--red);
+}
+
+.footer-copy {
+  font-size: .8rem;
+  color: rgba(245, 240, 232, .38);
+}
+
+@media(max-width: 900px) {
+  footer {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}

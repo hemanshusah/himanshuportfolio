@@ -1,0 +1,41 @@
+.edu-card {
+  background: var(--black);
+  padding: 1.5rem 2rem;
+  border: 1px solid var(--border);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.edu-degree {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: .3rem;
+}
+
+.edu-uni {
+  font-size: .85rem;
+  color: rgba(245, 240, 232, .5);
+  margin-bottom: .3rem;
+}
+
+.edu-year {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: .78rem;
+  color: var(--red);
+  letter-spacing: .08em;
+}
+
+.edu-badge {
+  display: inline-flex;
+  padding: .22rem .8rem;
+  font-size: .58rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: rgba(232, 57, 29, .15);
+  border: 1px solid rgba(232, 57, 29, .3);
+  color: var(--red);
+  width: fit-content;
+}

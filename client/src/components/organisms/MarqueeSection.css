@@ -1,0 +1,32 @@
+.marquee-section {
+  overflow: hidden;
+  padding: 1.2rem 0;
+  background: var(--red);
+}
+
+.marquee-track {
+  display: flex;
+  animation: marqueeScroll 22s linear infinite;
+  white-space: nowrap;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2.5rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, .9);
+}
+
+.marquee-dot {
+  width: 6px;
+  height: 6px;
+  background: rgba(245, 240, 232, .6);
+  border-radius: 50%;
+  flex-shrink: 0;
+}

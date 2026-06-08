@@ -1,0 +1,49 @@
+.tool-pill {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  background: rgba(245, 240, 232, .03);
+  border: 1px solid rgba(245, 240, 232, .07);
+  padding: .65rem 1.1rem;
+  font-size: .78rem;
+  letter-spacing: .03em;
+  color: rgba(245, 240, 232, .52);
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-pill::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: rgba(232, 57, 29, .1);
+  transition: width .3s;
+}
+
+.tool-pill:hover::before {
+  width: 100%;
+}
+
+.tool-pill:hover {
+  border-color: rgba(232, 57, 29, .26);
+  color: var(--white);
+}
+
+.tool-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(245, 240, 232, .15);
+  flex-shrink: 0;
+  transition: background .3s;
+  position: relative;
+  z-index: 1;
+}
+
+.tool-pill:hover .tool-dot {
+  background: var(--red);
+}

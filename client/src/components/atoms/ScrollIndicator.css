@@ -1,0 +1,24 @@
+.scroll-line {
+  position: absolute;
+  right: 3rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(245, 240, 232, .1) 30%, rgba(245, 240, 232, .1) 70%, transparent);
+}
+
+.scroll-dot {
+  position: absolute;
+  right: calc(3rem - 4px);
+  width: 9px;
+  height: 9px;
+  background: var(--red);
+  border-radius: 50%;
+  animation: scrollDown 2.5s ease-in-out infinite;
+}
+
+@media(max-width: 900px) {
+  .scroll-line, .scroll-dot {
+    right: 1.5rem;
+  }
+}
