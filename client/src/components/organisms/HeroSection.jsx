@@ -1,10 +1,9 @@
 import React from 'react';
 import ScrollIndicator from '../atoms/ScrollIndicator';
 import Button from '../atoms/Button';
-import './HeroSection.css';
 
 export default function HeroSection({ profile = {} }) {
-  const { name = 'Himanshu Sah', initials = 'HS', role = 'Brand Strategist & Marketer', description = '' } = profile;
+  const { name = 'Himanshu Sah', initials = 'HS', role = 'Brand Strategist & Designer', description = '' } = profile;
   
   const nameParts = name.split(' ');
   const firstName = nameParts[0];
@@ -24,8 +23,8 @@ export default function HeroSection({ profile = {} }) {
       </h1>
       <div className="hero-sub">
         <p className="hero-desc">{description}</p>
-        <Button href="#cv" className="hero-cta">
-          View Resume{' '}
+        <Button href="#work" className="hero-cta">
+          View Work{' '}
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path
               d="M4 10H16M16 10L10 4M16 10L10 16"

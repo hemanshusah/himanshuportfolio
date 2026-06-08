@@ -4,6 +4,7 @@ import ToolPill from '../molecules/ToolPill';
 export default function ToolsSection({ tools = {} }) {
   const designTools = tools.design || [];
   const marketingTools = tools.marketing || [];
+  const operationsTools = tools.operations || [];
 
   return (
     <section id="tools">
@@ -26,6 +27,14 @@ export default function ToolsSection({ tools = {} }) {
           <div className="tool-cat-label">Marketing &amp; Advertising</div>
           <div className="tools-row">
             {marketingTools.map((tool, idx) => (
+              <ToolPill key={idx} name={tool} />
+            ))}
+          </div>
+        </div>
+        <div className="reveal reveal-delay-2">
+          <div className="tool-cat-label">Productivity, CRM &amp; Operations</div>
+          <div className="tools-row">
+            {operationsTools.map((tool, idx) => (
               <ToolPill key={idx} name={tool} />
             ))}
           </div>

@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Himanshu Sah</title>
+    <title>Himanshu Sah — Brand Strategist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
         rel="stylesheet">
     <style>
         *,
@@ -24,7 +24,7 @@
             --off: #111;
             --white: #F5F0E8;
             --dim: #141414;
-            --border: rgba(245, 240, 232, 0.08);
+            --border: rgba(245, 240, 232, .08);
         }
 
         html {
@@ -39,7 +39,7 @@
             cursor: none
         }
 
-        /* CURSOR */
+        /* ── CURSOR ── */
         .cursor {
             width: 12px;
             height: 12px;
@@ -64,7 +64,7 @@
             transition: width .3s, height .3s
         }
 
-        /* NAV */
+        /* ── NAV ── */
         nav {
             position: fixed;
             top: 0;
@@ -111,7 +111,7 @@
             color: var(--red)
         }
 
-        /* HERO */
+        /* ── HERO ── */
         #hero {
             min-height: 100vh;
             display: flex;
@@ -182,11 +182,11 @@
             margin-bottom: 2rem;
             width: fit-content;
             opacity: 0;
-            animation: fadeUp .8s 2s forwards
+            animation: fadeUp .8s .2s forwards
         }
 
         .hero-tag::before {
-            content: "";
+            content: '';
             width: 6px;
             height: 6px;
             background: var(--white);
@@ -251,7 +251,15 @@
             border-color: var(--red)
         }
 
-        /* MARQUEE */
+        .hero-cta svg {
+            transition: transform .3s
+        }
+
+        .hero-cta:hover svg {
+            transform: translateX(4px)
+        }
+
+        /* ── MARQUEE ── */
         .marquee-section {
             overflow: hidden;
             padding: 1.2rem 0;
@@ -285,7 +293,7 @@
             flex-shrink: 0
         }
 
-        /* ABOUT */
+        /* ── ABOUT ── */
         #about {
             padding: 8rem 3rem;
             display: grid;
@@ -340,6 +348,14 @@
             transition: background .3s
         }
 
+        .stat:last-child {
+            border-right: none
+        }
+
+        .stat:hover {
+            background: rgba(232, 57, 29, .05)
+        }
+
         .stat-num {
             font-family: 'Barlow Condensed', sans-serif;
             font-weight: 900;
@@ -356,6 +372,7 @@
             color: rgba(245, 240, 232, .3)
         }
 
+        /* ── PHOTO ── */
         .about-visual {
             position: relative
         }
@@ -371,7 +388,7 @@
         }
 
         .photo-frame::after {
-            content: "";
+            content: '';
             position: absolute;
             bottom: -12px;
             right: -12px;
@@ -385,7 +402,7 @@
         .photo-frame img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             object-position: top center;
             display: block
         }
@@ -417,7 +434,12 @@
             text-transform: uppercase
         }
 
-        /* SECTION HEADERS */
+        /* ── WORK ── */
+        #work {
+            padding: 8rem 3rem;
+            border-top: 1px solid var(--border)
+        }
+
         .section-header {
             display: flex;
             align-items: flex-end;
@@ -442,7 +464,125 @@
             letter-spacing: -.02em
         }
 
-        /* TOOLS */
+        .section-count {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: rgba(245, 240, 232, .2);
+            letter-spacing: .1em;
+            padding-bottom: .5rem
+        }
+
+        .projects-list {
+            display: flex;
+            flex-direction: column
+        }
+
+        .project-item {
+            display: grid;
+            grid-template-columns: 80px 2fr 1fr 1fr 60px;
+            align-items: center;
+            gap: 2rem;
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--border);
+            position: relative;
+            text-decoration: none;
+            color: var(--white);
+            overflow: hidden
+        }
+
+        .project-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: rgba(232, 57, 29, .04);
+            transition: width .4s
+        }
+
+        .project-item:hover::before {
+            width: 100%
+        }
+
+        .project-item:last-child {
+            border-bottom: 1px solid var(--border)
+        }
+
+        .project-num {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: .9rem;
+            color: rgba(245, 240, 232, .18);
+            letter-spacing: .1em;
+            transition: color .3s
+        }
+
+        .project-item:hover .project-num {
+            color: var(--red)
+        }
+
+        .project-name {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 800;
+            font-size: clamp(28px, 4vw, 52px);
+            text-transform: uppercase;
+            line-height: 1
+        }
+
+        .project-sub {
+            font-size: .78rem;
+            color: rgba(245, 240, 232, .33);
+            margin-top: .4rem;
+            line-height: 1.5;
+            max-width: 420px
+        }
+
+        .project-type {
+            display: inline-flex;
+            background: rgba(245, 240, 232, .05);
+            border: 1px solid rgba(245, 240, 232, .09);
+            padding: .3rem .9rem;
+            font-size: .62rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: rgba(245, 240, 232, .4);
+            width: fit-content
+        }
+
+        .project-type.red {
+            background: rgba(232, 57, 29, .12);
+            border-color: rgba(232, 57, 29, .22);
+            color: var(--red)
+        }
+
+        .project-result strong {
+            display: block;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--white)
+        }
+
+        .project-result span {
+            font-size: .72rem;
+            color: rgba(245, 240, 232, .3)
+        }
+
+        .project-arrow {
+            opacity: .18;
+            transition: all .3s;
+            justify-self: end;
+            color: var(--red)
+        }
+
+        .project-item:hover .project-arrow {
+            opacity: 1;
+            transform: translateX(4px)
+        }
+
+        /* ── TOOLS ── */
         #tools {
             padding: 8rem 3rem;
             border-top: 1px solid var(--border);
@@ -488,7 +628,7 @@
         }
 
         .tool-pill::before {
-            content: "";
+            content: '';
             position: absolute;
             left: 0;
             top: 0;
@@ -518,11 +658,16 @@
             z-index: 1
         }
 
+        .tool-pill span {
+            position: relative;
+            z-index: 1
+        }
+
         .tool-pill:hover .tool-dot {
             background: var(--red)
         }
 
-        /* CV ACCORDION */
+        /* ── CV ACCORDION ── */
         #cv {
             padding: 8rem 3rem;
             border-top: 1px solid var(--border)
@@ -586,6 +731,7 @@
             border-color: var(--red)
         }
 
+        /* Accordion */
         .accordion {
             display: flex;
             flex-direction: column;
@@ -595,6 +741,10 @@
         .acc-item {
             border-bottom: 1px solid var(--border);
             overflow: hidden
+        }
+
+        .acc-item:first-child {
+            border-top: 1px solid var(--border)
         }
 
         .acc-trigger {
@@ -627,6 +777,12 @@
             transition: color .3s
         }
 
+        .acc-trigger:hover .acc-index {
+            color: var(--red)
+        }
+
+        .acc-title-wrap {}
+
         .acc-role {
             font-family: 'Barlow Condensed', sans-serif;
             font-weight: 800;
@@ -636,6 +792,10 @@
             color: var(--white);
             line-height: 1;
             transition: color .3s
+        }
+
+        .acc-trigger:hover .acc-role {
+            color: rgba(245, 240, 232, .9)
         }
 
         .acc-company {
@@ -691,15 +851,22 @@
             opacity: 1
         }
 
+        .acc-item.open .acc-index {
+            color: var(--red)
+        }
+
         .acc-body {
             display: grid;
             grid-template-rows: 0fr;
             transition: grid-template-rows .4s cubic-bezier(.4, 0, .2, 1);
-            overflow: hidden
         }
 
         .acc-item.open .acc-body {
             grid-template-rows: 1fr
+        }
+
+        .acc-inner {
+            overflow: hidden
         }
 
         .acc-content {
@@ -723,6 +890,14 @@
             line-height: 1
         }
 
+        .acc-highlight-label {
+            font-size: .7rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: rgba(245, 240, 232, .35);
+            line-height: 1.4
+        }
+
         .acc-bullets {
             list-style: none;
             display: flex;
@@ -738,6 +913,17 @@
             display: flex;
             gap: .8rem;
             border-bottom: 1px solid rgba(245, 240, 232, .04)
+        }
+
+        .acc-bullets li:last-child {
+            border-bottom: none
+        }
+
+        .acc-bullets li::before {
+            content: '—';
+            color: var(--red);
+            opacity: .4;
+            flex-shrink: 0
         }
 
         .acc-skills-row {
@@ -757,235 +943,13 @@
             transition: all .3s
         }
 
-        /* JOURNEY */
-        #journey {
-            padding: 8rem 3rem;
-            border-top: 1px solid var(--border);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .journey-bg-word {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Barlow Condensed', sans-serif;
-            font-weight: 900;
-            font-size: clamp(100px, 18vw, 240px);
-            color: rgba(245, 240, 232, .018);
-            text-transform: uppercase;
-            user-select: none;
-            white-space: nowrap;
-            letter-spacing: -.02em;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .journey-header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            margin-bottom: 5rem;
-            position: relative;
-        }
-
-        .journey-years {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-weight: 700;
-            font-size: .85rem;
-            color: rgba(245, 240, 232, .2);
-            letter-spacing: .15em;
-        }
-
-        .timeline-wrap {
-            position: relative;
-            padding-left: 2px;
-        }
-
-        .timeline-spine {
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background: var(--border);
-            overflow: hidden;
-        }
-
-        .timeline-spine-fill {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 1px;
-            background: linear-gradient(to bottom, var(--red), rgba(232, 57, 29, .3));
-            height: 0%;
-            transition: height .1s linear;
-        }
-
-        .journey-entry {
-            position: relative;
-            padding: 0 0 4rem 3.5rem;
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: opacity .7s ease, transform .7s ease;
-        }
-
-        .journey-entry.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .journey-dot {
-            position: absolute;
-            left: -5px;
-            top: .55rem;
-            width: 11px;
-            height: 11px;
-            border-radius: 50%;
-            background: var(--black);
-            border: 1px solid rgba(245, 240, 232, .2);
-            transition: background .4s, border-color .4s, transform .4s;
-            z-index: 2;
-        }
-
-        .journey-entry.visible .journey-dot {
-            background: var(--red);
-            border-color: var(--red);
-            box-shadow: 0 0 0 4px rgba(232, 57, 29, .12);
-        }
-
-        .journey-card {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 1.5rem;
-            align-items: start;
-            padding: 1.6rem 2rem;
-            border: 1px solid var(--border);
-            background: rgba(245, 240, 232, .018);
-            position: relative;
-            overflow: hidden;
-            transition: border-color .4s, background .4s;
-        }
-
-        .journey-entry:hover .journey-card {
-            background: rgba(232, 57, 29, .03);
-            border-color: rgba(232, 57, 29, .2);
-        }
-
-        .journey-role {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-weight: 800;
-            font-size: clamp(18px, 2.2vw, 26px);
-            text-transform: uppercase;
-            letter-spacing: -.01em;
-            line-height: 1;
-            margin-bottom: .4rem;
-        }
-
-        .journey-company {
-            font-size: .8rem;
+        .acc-skill-chip:hover {
+            border-color: rgba(232, 57, 29, .25);
             color: var(--red);
-            letter-spacing: .04em;
-            font-weight: 400;
-            margin-bottom: .6rem;
+            background: rgba(232, 57, 29, .07)
         }
 
-        .journey-date {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-weight: 700;
-            font-size: .82rem;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: rgba(245, 240, 232, .22);
-            white-space: nowrap;
-            margin-bottom: .5rem;
-        }
-
-        .journey-badge {
-            display: inline-flex;
-            padding: .22rem .8rem;
-            font-size: .58rem;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
-        .journey-badge.now {
-            background: rgba(232, 57, 29, .15);
-            border: 1px solid rgba(232, 57, 29, .3);
-            color: var(--red);
-        }
-
-        .journey-badge.past {
-            background: rgba(245, 240, 232, .04);
-            border: 1px solid rgba(245, 240, 232, .08);
-            color: rgba(245, 240, 232, .3);
-        }
-
-        /* EDUCATION */
-        .journey-edu-divider {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 2.5rem 0 3rem 3.5rem;
-            position: relative;
-        }
-
-        .edu-line {
-            flex: 1;
-            height: 1px;
-            background: rgba(245, 240, 232, .05);
-        }
-
-        .edu-word {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-weight: 700;
-            font-size: .65rem;
-            letter-spacing: .25em;
-            text-transform: uppercase;
-            color: rgba(245, 240, 232, .2);
-        }
-
-        .journey-edu-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1px;
-            background: var(--border);
-            margin-left: 3.5rem;
-        }
-
-        .edu-card {
-            background: var(--black);
-            padding: 1.5rem 2rem;
-            opacity: 0;
-            transform: translateY(16px);
-            transition: opacity .7s ease, transform .7s ease;
-        }
-
-        .edu-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .edu-degree {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: .05em;
-            margin-bottom: .3rem;
-        }
-
-        .edu-year {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-weight: 700;
-            font-size: .78rem;
-            color: var(--red);
-            letter-spacing: .08em;
-        }
-
-        /* CAPABILITIES */
+        /* ── CAPABILITIES ── */
         #skills {
             padding: 8rem 3rem;
             border-top: 1px solid var(--border);
@@ -1006,6 +970,25 @@
             position: relative;
             overflow: hidden;
             transition: background .3s
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--red);
+            transition: width .4s
+        }
+
+        .skill-card:hover::before {
+            width: 100%
+        }
+
+        .skill-card:hover {
+            background: rgba(232, 57, 29, .04)
         }
 
         .skill-icon {
@@ -1034,7 +1017,7 @@
             font-weight: 300
         }
 
-        /* CONTACT */
+        /* ── CONTACT ── */
         #contact {
             padding: 10rem 3rem;
             border-top: 1px solid var(--border);
@@ -1054,12 +1037,25 @@
             margin-bottom: 2rem
         }
 
+        .contact-title em {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--red)
+        }
+
         .contact-text {
             color: rgba(245, 240, 232, .4);
             font-size: .92rem;
             line-height: 1.7;
             font-weight: 300;
             margin-bottom: 3rem
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem
         }
 
         .contact-link {
@@ -1075,9 +1071,68 @@
             overflow: hidden
         }
 
+        .contact-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--red);
+            transform: scaleY(0);
+            transition: transform .3s;
+            transform-origin: bottom
+        }
+
+        .contact-link:hover::before {
+            transform: scaleY(1)
+        }
+
         .contact-link:hover {
             border-color: rgba(232, 57, 29, .26);
             padding-left: 2rem
+        }
+
+        .contact-link-icon {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: 1.1rem;
+            color: var(--red);
+            width: 28px;
+            text-align: center
+        }
+
+        .contact-link-label {
+            font-size: .6rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: rgba(245, 240, 232, .24);
+            display: block;
+            margin-bottom: .1rem
+        }
+
+        .contact-link-text {
+            font-size: .88rem;
+            color: rgba(245, 240, 232, .58)
+        }
+
+        .contact-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative
+        }
+
+        .contact-big {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: 20vw;
+            line-height: .8;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(245, 240, 232, .04);
+            text-transform: uppercase;
+            letter-spacing: -.04em;
+            user-select: none
         }
 
         .contact-badge {
@@ -1094,6 +1149,24 @@
             animation: rotateBadge 14s linear infinite
         }
 
+        .contact-badge span {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: 1.3rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+            animation: rotateBadge 14s linear infinite reverse
+        }
+
+        .contact-badge small {
+            font-size: .58rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            opacity: .7;
+            margin-top: .25rem;
+            animation: rotateBadge 14s linear infinite reverse
+        }
+
         footer {
             border-top: 1px solid var(--border);
             padding: 2rem 3rem;
@@ -1102,7 +1175,25 @@
             justify-content: space-between
         }
 
-        /* ANIMATIONS */
+        .footer-logo {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: 1.2rem;
+            letter-spacing: .1em;
+            text-transform: uppercase
+        }
+
+        .footer-logo span {
+            color: var(--red)
+        }
+
+        .footer-copy {
+            font-size: .7rem;
+            color: rgba(245, 240, 232, .18);
+            letter-spacing: .08em
+        }
+
+        /* ── ANIMATIONS ── */
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -1166,22 +1257,33 @@
             transform: translateY(0)
         }
 
-        /* MEDIA QUERIES */
-        @media(max-width: 1100px) {
+        .reveal-delay-1 {
+            transition-delay: .1s
+        }
+
+        .reveal-delay-2 {
+            transition-delay: .2s
+        }
+
+        .reveal-delay-3 {
+            transition-delay: .3s
+        }
+
+        .reveal-delay-4 {
+            transition-delay: .4s
+        }
+
+        @media(max-width:1100px) {
             .cv-layout {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr
             }
 
             .cv-sticky {
-                position: static;
+                position: static
             }
 
             .skills-grid {
                 grid-template-columns: repeat(2, 1fr)
-            }
-
-            .journey-edu-cards {
-                grid-template-columns: 1fr
             }
         }
 
@@ -1193,69 +1295,98 @@
                 gap: 3rem
             }
 
+            nav {
+                padding: 1.2rem 1.5rem
+            }
+
             .nav-links {
                 display: none
             }
 
             #hero,
             #about,
+            #work,
             #tools,
             #cv,
-            #journey,
             #skills,
             #contact {
                 padding-left: 1.5rem;
                 padding-right: 1.5rem
             }
 
+            .project-item {
+                grid-template-columns: 1fr;
+                gap: .5rem
+            }
+
+            .project-num,
+            .project-result,
+            .project-arrow {
+                display: none
+            }
+
+            .contact-visual {
+                display: none
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr
+            }
+
             .acc-meta {
-                display: none;
+                display: none
             }
 
             .acc-content {
-                padding-left: 0;
-            }
-
-            .journey-card {
-                grid-template-columns: 1fr
+                padding-left: 0
             }
         }
     </style>
 </head>
 
 <body>
+
     <div class="cursor" id="cursor"></div>
     <div class="cursor-ring" id="cursorRing"></div>
 
+    <!-- NAV -->
     <nav id="mainNav">
         <a href="#hero" class="nav-logo">HS<span>*</span></a>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
             <li><a href="#tools">Tools</a></li>
             <li><a href="#cv">CV</a></li>
-            <li><a href="#journey">Journey</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
+    <!-- HERO -->
     <section id="hero">
         <div class="hero-bg"></div>
         <div class="hero-grain"></div>
         <div class="scroll-line"></div>
         <div class="scroll-dot"></div>
         <div class="hero-big">HS</div>
-        <div class="hero-tag">Brand Strategist &amp; Marketer</div>
+        <div class="hero-tag">Brand Strategist &amp; Designer</div>
         <h1 class="hero-title">Himanshu<br><em>Sah</em></h1>
         <div class="hero-sub">
-            <p class="hero-desc">I help founders transform their products into authentic brands crafting identities and
-                strategies that resonate deeply and build lasting connections.</p>
-            <a href="#cv" class="hero-cta">View Resume <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <p class="hero-desc">I help founders transform their products into authentic brands — crafting identities
+                and strategies that resonate deeply and build lasting connections.</p>
+            <a href="#work" class="hero-cta">View Work <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="1.5"
                         stroke-linecap="round" />
                 </svg></a>
         </div>
     </section>
 
+    <!-- MARQUEE -->
     <div class="marquee-section">
         <div class="marquee-track">
             <div class="marquee-item"><span class="marquee-dot"></span>Brand Strategy</div>
@@ -1267,19 +1398,25 @@
             <div class="marquee-item"><span class="marquee-dot"></span>Market Expansion</div>
             <div class="marquee-item"><span class="marquee-dot"></span>Brand Strategy</div>
             <div class="marquee-item"><span class="marquee-dot"></span>GTM Planning</div>
+            <div class="marquee-item"><span class="marquee-dot"></span>Visual Identity</div>
+            <div class="marquee-item"><span class="marquee-dot"></span>Community Growth</div>
+            <div class="marquee-item"><span class="marquee-dot"></span>Event Design</div>
+            <div class="marquee-item"><span class="marquee-dot"></span>Partnership Strategy</div>
+            <div class="marquee-item"><span class="marquee-dot"></span>Market Expansion</div>
         </div>
     </div>
 
+    <!-- ABOUT -->
     <section id="about">
         <div>
             <p class="about-label reveal">Who I Am</p>
             <h2 class="about-heading reveal reveal-delay-1">Building<br>Brands<br><em>that last</em></h2>
             <p class="about-text reveal reveal-delay-2">With a focus on trust, creativity, and transparency, I craft
                 brand identities and go-to-market strategies that resonate deeply. From zero-budget scrappy startups to
-                institutional GTM plays - I work where ideas need to find their audience.</p>
+                institutional GTM plays — I work where ideas need to find their audience.</p>
             <div class="about-stats reveal reveal-delay-3">
                 <div class="stat">
-                    <div class="stat-num" data-target="200" data-suffix="x">200×</div>
+                    <div class="stat-num" data-target="200" data-suffix="×">200×</div>
                     <div class="stat-label">ROI Delivered</div>
                 </div>
                 <div class="stat">
@@ -1293,14 +1430,84 @@
             </div>
         </div>
         <div class="about-visual reveal reveal-delay-2">
-            <div class="photo-frame">
-                <img src="pic.png" alt="Himanshu Sah">
+            <div class="photo-frame" id="photoFrame">
+                <img src="pic.png" alt="Himanshu Sah" style="width:100%; height:100%; object-fit:cover;">
                 <div class="photo-label-tag">Himanshu Sah</div>
             </div>
             <div class="about-deco">Strategy</div>
         </div>
     </section>
 
+    <!-- WORK -->
+    <section id="work">
+        <div class="section-header reveal">
+            <div>
+                <p class="section-label">Selected Work</p>
+                <h2 class="section-title">Projects</h2>
+            </div>
+            <div class="section-count">04 Cases</div>
+        </div>
+        <div class="projects-list">
+            <div class="project-item reveal">
+                <div class="project-num">01</div>
+                <div>
+                    <div class="project-name">BaithakX</div>
+                    <div class="project-sub">Exclusive invite-only founder community. Word-of-mouth GTM, full brand
+                        identity, partner management with HSBC, Innovation Hub UP &amp; AKTU.</div>
+                </div>
+                <div class="project-type red">Event &amp; GTM</div>
+                <div class="project-result"><strong>₹30 Lac</strong><span>on ₹15K budget · 200× ROI</span></div>
+                <div class="project-arrow"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                        <path d="M4 11H18M18 11L11 4M18 11L11 18" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                    </svg></div>
+            </div>
+            <div class="project-item reveal reveal-delay-1">
+                <div class="project-num">02</div>
+                <div>
+                    <div class="project-name">Waystars AI</div>
+                    <div class="project-sub">Nepal market expansion via IN-SPAN diplomatic framework. Indian Embassy
+                        alignment, NICCI, grassroots university penetration strategy.</div>
+                </div>
+                <div class="project-type">GTM Strategy</div>
+                <div class="project-result"><strong>350K+</strong><span>CAN Info-Tech audience</span></div>
+                <div class="project-arrow"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                        <path d="M4 11H18M18 11L11 4M18 11L11 18" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                    </svg></div>
+            </div>
+            <div class="project-item reveal reveal-delay-2">
+                <div class="project-num">03</div>
+                <div>
+                    <div class="project-name">Greenverse</div>
+                    <div class="project-sub">End-to-end branding &amp; B2G GTM for a plant-based air purifier brand.
+                        100+ assets, pitch deck, fundraising support, institutional sales.</div>
+                </div>
+                <div class="project-type">Branding</div>
+                <div class="project-result"><strong>100+</strong><span>Warm leads generated</span></div>
+                <div class="project-arrow"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                        <path d="M4 11H18M18 11L11 4M18 11L11 18" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                    </svg></div>
+            </div>
+            <div class="project-item reveal reveal-delay-3">
+                <div class="project-num">04</div>
+                <div>
+                    <div class="project-name">Startup Spotlight</div>
+                    <div class="project-sub">Exclusive paid startup podcast. 8-day shoot, 7 founders, 14 promo
+                        creatives, complete narrative curation &amp; production.</div>
+                </div>
+                <div class="project-type red">Program</div>
+                <div class="project-result"><strong>48</strong><span>Registrations · ₹15K ticket</span></div>
+                <div class="project-arrow"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                        <path d="M4 11H18M18 11L11 4M18 11L11 18" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                    </svg></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOOLS -->
     <section id="tools">
         <div class="section-header reveal">
             <div>
@@ -1313,29 +1520,48 @@
                 <div class="tool-cat-label">Design &amp; Creative</div>
                 <div class="tools-row">
                     <div class="tool-pill"><span class="tool-dot"></span><span>Adobe Photoshop</span></div>
+                    <div class="tool-pill"><span class="tool-dot"></span><span>Adobe Audition</span></div>
                     <div class="tool-pill"><span class="tool-dot"></span><span>Figma</span></div>
                     <div class="tool-pill"><span class="tool-dot"></span><span>Canva</span></div>
                     <div class="tool-pill"><span class="tool-dot"></span><span>CapCut</span></div>
+                    <div class="tool-pill"><span class="tool-dot"></span><span>BrandBird</span></div>
                 </div>
             </div>
             <div class="reveal reveal-delay-1">
                 <div class="tool-cat-label">Marketing &amp; Advertising</div>
                 <div class="tools-row">
-                    <div class="tool-pill"><span class="tool-dot"></span><span>Meta Ads</span></div>
+                    <div class="tool-pill"><span class="tool-dot"></span><span>Meta Ads Manager</span></div>
                     <div class="tool-pill"><span class="tool-dot"></span><span>Google Ads</span></div>
                     <div class="tool-pill"><span class="tool-dot"></span><span>LinkedIn Outreach</span></div>
+                    <div class="tool-pill"><span class="tool-dot"></span><span>Instagram Creator Studio</span></div>
+                    <div class="tool-pill"><span class="tool-dot"></span><span>WhatsApp Business</span></div>
+                </div>
+            </div>
+            <div class="reveal reveal-delay-2">
+                <div class="tool-cat-label">Productivity, CRM &amp; Operations</div>
+                <div class="tools-row">
+                    <div class="tool-pill"><span class="tool-dot"></span><span>Notion</span></div>
+                    <div class="tool-pill"><span class="tool-dot"></span><span>Trello</span></div>
+                    <div class="tool-pill"><span class="tool-dot"></span><span>Zoho CRM</span></div>
+                    <div class="tool-pill"><span class="tool-dot"></span><span>Google Workspace</span></div>
+                    <div class="tool-pill"><span class="tool-dot"></span><span>Shopify</span></div>
+                    <div class="tool-pill"><span class="tool-dot"></span><span>VS Code</span></div>
+                    <div class="tool-pill"><span class="tool-dot"></span><span>Perplexity AI</span></div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CV ACCORDION -->
     <section id="cv">
         <div class="cv-layout">
+
+            <!-- sticky sidebar -->
             <div class="cv-sticky reveal">
                 <p class="section-label">Resume</p>
                 <h2 class="cv-sticky-title">My<br><em>CV</em></h2>
-                <p class="cv-sticky-text">Click any role to expand the full details, responsibilities, outcomes, and
-                    skills used.</p>
+                <p class="cv-sticky-text">Click any role to expand the full details — responsibilities, outcomes, and
+                    skills used. Everything from the PDF, right here.</p>
                 <a href="#" class="cv-dl">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                         <path d="M8 1V11M8 11L4 7M8 11L12 7M2 14H14" stroke="currentColor" stroke-width="1.3"
@@ -1344,19 +1570,23 @@
                     Download CV
                 </a>
             </div>
+
+            <!-- accordion -->
             <div class="accordion reveal reveal-delay-1">
+
+                <!-- 1 -->
                 <div class="acc-item" id="acc1">
                     <button class="acc-trigger" onclick="toggleAcc('acc1')">
                         <div class="acc-trigger-left">
                             <span class="acc-index">01</span>
                             <div class="acc-title-wrap">
                                 <div class="acc-role">Brand Strategist &amp; GTM Lead</div>
-                                <div class="acc-company">Waystars AI - Nepal Market Expansion</div>
+                                <div class="acc-company">Waystars AI — Nepal Market Expansion</div>
                             </div>
                         </div>
                         <div class="acc-meta">
                             <span class="acc-tag">GTM Strategy</span>
-                            <span class="acc-date">2024-25</span>
+                            <span class="acc-date">2024–25</span>
                         </div>
                         <svg class="acc-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="1.5"
@@ -1369,68 +1599,274 @@
                                 <div class="acc-highlight">
                                     <div>
                                         <div class="acc-highlight-num">350K+</div>
-                                        <div class="acc-highlight-label">Target Audience</div>
+                                        <div class="acc-highlight-label">CAN Info-Tech<br>target audience</div>
+                                    </div>
+                                    <div>
+                                        <div class="acc-highlight-num">NPR 1,500</div>
+                                        <div class="acc-highlight-label">Positioned price<br>vs grey market NPR 499–999
+                                        </div>
                                     </div>
                                 </div>
                                 <ul class="acc-bullets">
                                     <li>Designed Nepal GTM using the IN-SPAN diplomatic framework</li>
-                                    <li>Aligned with Indian Embassy Commerce Wing for B2G channels</li>
+                                    <li>Aligned with Indian Embassy Commerce Wing &amp; NICCI for B2G channels with
+                                        Indian MNCs operating in Nepal</li>
+                                    <li>Mapped grassroots penetration across university tech clubs, Microsoft Learn
+                                        Student Ambassadors, and Google Developer Groups</li>
+                                    <li>Designed a zero-CAC Scholar's Pack with the Indian Embassy to seed adoption
+                                        among top student influencers</li>
+                                    <li>Identified CAN Info-Tech 2026 (350,000+ visitors) as primary acquisition event
+                                        and Nepal Bharat Library (500-seat auditorium) as press launch venue</li>
+                                    <li>Positioned Waystars as Nepal's first officially compliant AI platform — framing
+                                        it as a knowledge tool, not just a commercial product</li>
                                 </ul>
+                                <div class="acc-skills-row">
+                                    <span class="acc-skill-chip">Market Research</span><span
+                                        class="acc-skill-chip">Diplomatic GTM</span><span
+                                        class="acc-skill-chip">Partnership Strategy</span><span
+                                        class="acc-skill-chip">Competitive Positioning</span><span
+                                        class="acc-skill-chip">Community Mapping</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <!-- 2 -->
+                <div class="acc-item" id="acc2">
+                    <button class="acc-trigger" onclick="toggleAcc('acc2')">
+                        <div class="acc-trigger-left">
+                            <span class="acc-index">02</span>
+                            <div class="acc-title-wrap">
+                                <div class="acc-role">Founder &amp; Event Strategist</div>
+                                <div class="acc-company">BaithakX — Exclusive Startup Community</div>
+                            </div>
+                        </div>
+                        <div class="acc-meta">
+                            <span class="acc-tag red">Event &amp; GTM</span>
+                            <span class="acc-date">2023–24</span>
+                        </div>
+                        <svg class="acc-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" />
+                        </svg>
+                    </button>
+                    <div class="acc-body">
+                        <div class="acc-inner">
+                            <div class="acc-content">
+                                <div class="acc-highlight">
+                                    <div>
+                                        <div class="acc-highlight-num">₹30 Lac</div>
+                                        <div class="acc-highlight-label">Revenue on<br>₹15K budget</div>
+                                    </div>
+                                    <div>
+                                        <div class="acc-highlight-num">200×</div>
+                                        <div class="acc-highlight-label">Return on<br>investment</div>
+                                    </div>
+                                    <div>
+                                        <div class="acc-highlight-num">314</div>
+                                        <div class="acc-highlight-label">Community<br>members built</div>
+                                    </div>
+                                </div>
+                                <ul class="acc-bullets">
+                                    <li>Designed a word-of-mouth first GTM approach leveraging existing founder networks
+                                        and targeted outreach to curate the right room</li>
+                                    <li>Focused on getting the right 10 people in the room who would each bring 10 more
+                                        — building a high-trust, high-value community from the ground up</li>
+                                    <li>Secured three marquee institutional partners: HSBC (financial credibility),
+                                        Innovation Hub UP (government ecosystem access), and AKTU Lucknow (academic
+                                        network)</li>
+                                    <li>Managed complete event logistics across two editions — timelines, venue
+                                        coordination, approvals, ticketing, and guest experience</li>
+                                    <li>Designed curated goodies, custom decor, and a dedicated landing page to maintain
+                                        brand consistency and drive pre-event engagement</li>
+                                    <li>Built BaithakX's complete brand identity from scratch — logo, colour system,
+                                        typography, and creative assets across social, venue, and print collaterals</li>
+                                    <li>Positioned as an exclusive, invite-only community to create perceived scarcity
+                                        and drive demand through aspiration rather than mass outreach</li>
+                                </ul>
+                                <div class="acc-skills-row">
+                                    <span class="acc-skill-chip">Brand Identity</span><span
+                                        class="acc-skill-chip">Community Building</span><span
+                                        class="acc-skill-chip">Word-of-Mouth GTM</span><span
+                                        class="acc-skill-chip">Partnership Management</span><span
+                                        class="acc-skill-chip">Event Production</span><span
+                                        class="acc-skill-chip">Revenue Strategy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="acc-item" id="acc3">
+                    <button class="acc-trigger" onclick="toggleAcc('acc3')">
+                        <div class="acc-trigger-left">
+                            <span class="acc-index">03</span>
+                            <div class="acc-title-wrap">
+                                <div class="acc-role">Marketing &amp; Brand Lead</div>
+                                <div class="acc-company">Greenverse — Plant-Based Air Purifier</div>
+                            </div>
+                        </div>
+                        <div class="acc-meta">
+                            <span class="acc-tag">Branding</span>
+                            <span class="acc-date">2023</span>
+                        </div>
+                        <svg class="acc-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" />
+                        </svg>
+                    </button>
+                    <div class="acc-body">
+                        <div class="acc-inner">
+                            <div class="acc-content">
+                                <div class="acc-highlight">
+                                    <div>
+                                        <div class="acc-highlight-num">100+</div>
+                                        <div class="acc-highlight-label">Design assets<br>across 4 platforms</div>
+                                    </div>
+                                    <div>
+                                        <div class="acc-highlight-num">100+</div>
+                                        <div class="acc-highlight-label">Warm leads<br>generated</div>
+                                    </div>
+                                </div>
+                                <ul class="acc-bullets">
+                                    <li>Built complete brand identity from scratch — defining visual language, tone, and
+                                        brand story across 100+ assets including standees, banners, event collaterals,
+                                        and a product catalogue</li>
+                                    <li>Developed a B2G-led GTM strategy positioning Greenverse as a premium, luxury air
+                                        purifier brand</li>
+                                    <li>Secured placements with government officials and institutional buyers in
+                                        high-visibility spaces — building brand credibility top-down rather than relying
+                                        on traditional B2C acquisition</li>
+                                    <li>Generated 100+ warm leads through targeted outreach and strategic institutional
+                                        partnerships, converting several into multi-order sales</li>
+                                    <li>Designed a comprehensive investor pitch deck showcasing Greenverse's value
+                                        proposition and growth potential, supporting fundraising conversations</li>
+                                </ul>
+                                <div class="acc-skills-row">
+                                    <span class="acc-skill-chip">Brand Identity Design</span><span
+                                        class="acc-skill-chip">B2G GTM</span><span class="acc-skill-chip">Sales &amp;
+                                        Partnerships</span><span class="acc-skill-chip">Pitch Deck Design</span><span
+                                        class="acc-skill-chip">Print Design</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="acc-item" id="acc4">
+                    <button class="acc-trigger" onclick="toggleAcc('acc4')">
+                        <div class="acc-trigger-left">
+                            <span class="acc-index">04</span>
+                            <div class="acc-title-wrap">
+                                <div class="acc-role">Producer &amp; Creative Director</div>
+                                <div class="acc-company">Startup Spotlight — Exclusive Podcast Program</div>
+                            </div>
+                        </div>
+                        <div class="acc-meta">
+                            <span class="acc-tag red">Program</span>
+                            <span class="acc-date">2023</span>
+                        </div>
+                        <svg class="acc-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" />
+                        </svg>
+                    </button>
+                    <div class="acc-body">
+                        <div class="acc-inner">
+                            <div class="acc-content">
+                                <div class="acc-highlight">
+                                    <div>
+                                        <div class="acc-highlight-num">48</div>
+                                        <div class="acc-highlight-label">Registrations<br>generated</div>
+                                    </div>
+                                    <div>
+                                        <div class="acc-highlight-num">₹15K</div>
+                                        <div class="acc-highlight-label">Ticket size per<br>startup</div>
+                                    </div>
+                                    <div>
+                                        <div class="acc-highlight-num">8 Days</div>
+                                        <div class="acc-highlight-label">Shoot across<br>7 founders</div>
+                                    </div>
+                                </div>
+                                <ul class="acc-bullets">
+                                    <li>Crafted the entire program narrative — from initial paperwork and curation to
+                                        story writing, every detail handled in-house</li>
+                                    <li>Managed venue selection, props, stage design, and all aspects of the shooting
+                                        environment to provide a visually compelling backdrop</li>
+                                    <li>Established a distinctive brand identity — produced 14 promotional creatives and
+                                        10 videos to build interest and excitement</li>
+                                    <li>The 8-day shoot featured 7 founders, each sharing their stories and insights,
+                                        with our team leading the shoot and directing each session</li>
+                                    <li>Editing outsourced due to a last-minute budget cut — but production quality was
+                                        maintained throughout</li>
+                                    <li>With a paid podcast model and efficient promotional strategy, the program
+                                        generated a strong reception — confirming the program's potential for future
+                                        iterations</li>
+                                </ul>
+                                <div class="acc-skills-row">
+                                    <span class="acc-skill-chip">Program Curation</span><span
+                                        class="acc-skill-chip">Storytelling</span><span class="acc-skill-chip">Video
+                                        Direction</span><span class="acc-skill-chip">Venue &amp; Production</span><span
+                                        class="acc-skill-chip">Brand Promotion</span><span
+                                        class="acc-skill-chip">Monetisation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="acc-item" id="acc5">
+                    <button class="acc-trigger" onclick="toggleAcc('acc5')">
+                        <div class="acc-trigger-left">
+                            <span class="acc-index">05</span>
+                            <div class="acc-title-wrap">
+                                <div class="acc-role">Event Designer &amp; Partnership Manager</div>
+                                <div class="acc-company">G20 DIA × Startup Kumbh — MeitY / BIMTECH</div>
+                            </div>
+                        </div>
+                        <div class="acc-meta">
+                            <span class="acc-tag">Event Design</span>
+                            <span class="acc-date">2023</span>
+                        </div>
+                        <svg class="acc-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" />
+                        </svg>
+                    </button>
+                    <div class="acc-body">
+                        <div class="acc-inner">
+                            <div class="acc-content">
+                                <ul class="acc-bullets">
+                                    <li>Managed full event design for the G20 Digital Innovation Alliance (DIA) full
+                                        session at India Expo Centre &amp; Mart, Greater Noida</li>
+                                    <li>Produced standees, banners, stall designs, and all media outreach collateral for
+                                        Startup Kumbh partnership</li>
+                                    <li>Coordinated partner activation from planning through on-ground execution and
+                                        co-branding</li>
+                                    <li>Designed the MeitY Startup Hub newsletter — published at msm.meity.gov.in</li>
+                                    <li>Created biography designs, report booklets, and the official Startup Kumbh
+                                        booklet (B.K. Birla SDG Awards, March 2024)</li>
+                                </ul>
+                                <div class="acc-skills-row">
+                                    <span class="acc-skill-chip">Event Design</span><span class="acc-skill-chip">Print
+                                        Collateral</span><span class="acc-skill-chip">Partner Activation</span><span
+                                        class="acc-skill-chip">Newsletter Design</span><span
+                                        class="acc-skill-chip">Booklet Design</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /accordion -->
         </div>
     </section>
 
-    <section id="journey">
-        <div class="journey-bg-word">Journey</div>
-        <div class="journey-header reveal">
-            <div>
-                <p class="section-label">Experience</p>
-                <h2 class="section-title">The<br><span
-                        style="font-family: 'Instrument Serif', serif;font-style:italic;font-weight:400;color:rgba(245,240,232, .45); font-size: .92em">Journey</span>
-                </h2>
-            </div>
-            <div class="journey-years">2018 — Present</div>
-        </div>
-        <div class="timeline-wrap" id="timelineWrap">
-            <div class="timeline-spine">
-                <div class="timeline-spine-fill" id="spineFill"></div>
-            </div>
-            <div class="journey-entry current" id="je1">
-                <div class="journey-dot"></div>
-                <div class="journey-connector"></div>
-                <div class="journey-card">
-                    <div>
-                        <div class="journey-role">Marketing Lead - Strategy &amp; GTM</div>
-                        <div class="journey-company">Webworks Co.</div>
-                        <div class="journey-tags"><span class="journey-tag">ABM</span><span class="journey-tag">GTM
-                                Design</span></div>
-                    </div>
-                    <div class="journey-right">
-                        <div class="journey-date">Nov 2025 - Now</div>
-                        <span class="journey-badge now">Current</span>
-                    </div>
-                </div>
-            </div>
-            <div class="journey-edu-divider reveal">
-                <div class="edu-line"></div>
-                <div class="edu-word">Education</div>
-                <div class="edu-line"></div>
-            </div>
-            <div class="journey-edu-cards">
-                <div class="edu-card" id="edu1">
-                    <div class="journey-badge edu" style="margin-bottom:.8rem">In Progress</div>
-                    <div class="edu-degree">MBA</div>
-                    <div class="edu-uni">Manipal University Jaipur</div>
-                    <div class="edu-year">2026</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- CAPABILITIES -->
     <section id="skills">
         <div class="section-header reveal">
             <div>
@@ -1442,27 +1878,78 @@
             <div class="skill-card reveal">
                 <div class="skill-icon">01</div>
                 <div class="skill-name">Brand Identity</div>
-                <p class="skill-desc">Logo systems and visual language across touchpoints.</p>
+                <p class="skill-desc">Logo systems, colour palettes, typography, and complete visual language across
+                    every touchpoint.</p>
             </div>
             <div class="skill-card reveal reveal-delay-1">
                 <div class="skill-icon">02</div>
                 <div class="skill-name">GTM Strategy</div>
-                <p class="skill-desc">Channel selection and messaging architecture from zero.</p>
+                <p class="skill-desc">Channel selection, messaging architecture, community-led and institutional growth
+                    plays — from zero.</p>
+            </div>
+            <div class="skill-card reveal reveal-delay-2">
+                <div class="skill-icon">03</div>
+                <div class="skill-name">Event Design</div>
+                <p class="skill-desc">Concept, venue, partners, collateral, and on-ground experience management
+                    end-to-end.</p>
+            </div>
+            <div class="skill-card reveal reveal-delay-3">
+                <div class="skill-icon">04</div>
+                <div class="skill-name">Partnerships</div>
+                <p class="skill-desc">Pitching and managing institutional partners from MNCs to government bodies —
+                    unlocking new channels.</p>
+            </div>
+            <div class="skill-card reveal">
+                <div class="skill-icon">05</div>
+                <div class="skill-name">Content Design</div>
+                <p class="skill-desc">Social creatives, pitch decks, booklets, newsletters built for memorability and
+                    conversion.</p>
+            </div>
+            <div class="skill-card reveal reveal-delay-1">
+                <div class="skill-icon">06</div>
+                <div class="skill-name">Market Research</div>
+                <p class="skill-desc">Competitive landscaping, audience profiling, pricing strategy to find your exact
+                    angle.</p>
+            </div>
+            <div class="skill-card reveal reveal-delay-2">
+                <div class="skill-icon">07</div>
+                <div class="skill-name">Community Building</div>
+                <p class="skill-desc">High-trust communities through curated networks, invite-only positioning, and
+                    word-of-mouth loops.</p>
+            </div>
+            <div class="skill-card reveal reveal-delay-3">
+                <div class="skill-icon">08</div>
+                <div class="skill-name">Pitch &amp; Fundraising</div>
+                <p class="skill-desc">Investor-ready pitch decks and narrative frameworks that communicate vision and
+                    growth potential clearly.</p>
             </div>
         </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
         <div>
             <p class="about-label reveal">Let's Connect</p>
             <h2 class="contact-title reveal reveal-delay-1">Let's<br><em>Build</em><br>Together</h2>
-            <p class="contact-text reveal reveal-delay-2">Whether you're a founder looking to define your brand or
-                expand to new markets, I'd love to hear what you're working on.</p>
+            <p class="contact-text reveal reveal-delay-2">Whether you're a founder looking to define your brand, expand
+                to new markets, or build a community — I'd love to hear what you're working on.</p>
             <div class="contact-links reveal reveal-delay-3">
+                <a href="tel:+918076646898" class="contact-link">
+                    <div class="contact-link-icon">☎</div>
+                    <div><span class="contact-link-label">Phone</span>
+                        <div class="contact-link-text">+91 80766 46898</div>
+                    </div>
+                </a>
                 <a href="mailto:hemanshuhas@gmail.com" class="contact-link">
                     <div class="contact-link-icon">@</div>
                     <div><span class="contact-link-label">Email</span>
                         <div class="contact-link-text">hemanshuhas@gmail.com</div>
+                    </div>
+                </a>
+                <a href="https://linkedin.com/in/himanshu-sah" target="_blank" class="contact-link">
+                    <div class="contact-link-icon">in</div>
+                    <div><span class="contact-link-label">LinkedIn</span>
+                        <div class="contact-link-text">Himanshu Sah</div>
                     </div>
                 </a>
             </div>
@@ -1475,26 +1962,38 @@
 
     <footer>
         <div class="footer-logo">HS<span>*</span></div>
-        <div class="footer-copy">© 2025 Himanshu Sah | Bengaluru, India</div>
+        <div class="footer-copy">© 2025 Himanshu Sah — Brand Strategist</div>
+        <div class="footer-copy">Bengaluru, India</div>
     </footer>
 
     <script>
-        // CURSOR
+        // Cursor
         const cursor = document.getElementById('cursor'), ring = document.getElementById('cursorRing');
         let mx = 0, my = 0, rx = 0, ry = 0;
         document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
         (function loop() { rx += (mx - rx) * .12; ry += (my - ry) * .12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(loop); })();
+        document.querySelectorAll('a,button,label').forEach(el => {
+            el.addEventListener('mouseenter', () => { cursor.style.width = '20px'; cursor.style.height = '20px'; ring.style.width = '58px'; ring.style.height = '58px'; });
+            el.addEventListener('mouseleave', () => { cursor.style.width = '12px'; cursor.style.height = '12px'; ring.style.width = '36px'; ring.style.height = '36px'; });
+        });
 
-        // REVEAL
-        const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: .08 });
+        // Nav
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            nav.style.backdropFilter = window.scrollY > 80 ? 'blur(20px)' : '';
+            nav.style.background = window.scrollY > 80 ? 'rgba(10,10,10,0.9)' : '';
+        });
+
+        // Reveal
+        const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: .08, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-        // STATS COUNTER
+        // Counters
         const statObs = new IntersectionObserver(entries => {
             entries.forEach(e => {
                 if (e.isIntersecting) {
                     e.target.querySelectorAll('.stat-num').forEach(n => {
-                        const tgt = parseInt(n.dataset.target), sfx = n.dataset.suffix || "";
+                        const tgt = parseInt(n.dataset.target), sfx = n.dataset.suffix || '';
                         let s, dur = 1800;
                         const step = ts => { if (!s) s = ts; const p = Math.min((ts - s) / dur, 1), ease = 1 - Math.pow(1 - p, 3); n.textContent = Math.floor(ease * tgt) + sfx; if (p < 1) requestAnimationFrame(step); };
                         requestAnimationFrame(step);
@@ -1505,23 +2004,17 @@
         }, { threshold: .5 });
         document.querySelectorAll('.about-stats').forEach(el => statObs.observe(el));
 
-        // ACCORDION TOGGLE
+        // Accordion
         function toggleAcc(id) {
             const item = document.getElementById(id);
             const isOpen = item.classList.contains('open');
+            // Close all
             document.querySelectorAll('.acc-item').forEach(el => el.classList.remove('open'));
+            // Open clicked (unless it was already open)
             if (!isOpen) item.classList.add('open');
         }
 
-        // TIMELINE FILL
-        const spineFill = document.getElementById('spineFill');
-        const timelineWrap = document.getElementById('timelineWrap');
-        window.addEventListener('scroll', () => {
-            const rect = timelineWrap.getBoundingClientRect();
-            const visible = Math.max(0, window.innerHeight - rect.top);
-            const pct = Math.min(100, (visible / rect.height) * 110);
-            spineFill.style.height = pct + '%';
-        }, { passive: true });
+
     </script>
 </body>
 

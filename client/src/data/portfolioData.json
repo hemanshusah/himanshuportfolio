@@ -2,15 +2,17 @@
   "profile": {
     "name": "Himanshu Sah",
     "initials": "HS",
-    "role": "Brand Strategist & Marketer",
-    "description": "I help founders transform their products into authentic brands crafting identities and strategies that resonate deeply and build lasting connections.",
+    "role": "Brand Strategist & Designer",
+    "description": "I help founders transform their products into authentic brands — crafting identities and strategies that resonate deeply and build lasting connections.",
     "email": "hemanshuhas@gmail.com",
+    "phone": "+91 80766 46898",
+    "linkedin": "https://linkedin.com/in/himanshu-sah",
     "location": "Bengaluru, India"
   },
   "stats": [
     {
       "value": 200,
-      "suffix": "x",
+      "suffix": "×",
       "label": "ROI Delivered"
     },
     {
@@ -33,17 +35,68 @@
     "Partnership Strategy",
     "Market Expansion"
   ],
+  "projects": [
+    {
+      "num": "01",
+      "name": "BaithakX",
+      "sub": "Exclusive invite-only founder community. Word-of-mouth GTM, full brand identity, partner management with HSBC, Innovation Hub UP & AKTU.",
+      "type": "Event & GTM",
+      "tagClass": "red",
+      "result": "₹30 Lac",
+      "resultSub": "on ₹15K budget · 200× ROI"
+    },
+    {
+      "num": "02",
+      "name": "Waystars AI",
+      "sub": "Nepal market expansion via IN-SPAN diplomatic framework. Indian Embassy alignment, NICCI, grassroots university penetration strategy.",
+      "type": "GTM Strategy",
+      "tagClass": "",
+      "result": "350K+",
+      "resultSub": "CAN Info-Tech audience"
+    },
+    {
+      "num": "03",
+      "name": "Greenverse",
+      "sub": "End-to-end branding & B2G GTM for a plant-based air purifier brand. 100+ assets, pitch deck, fundraising support, institutional sales.",
+      "type": "Branding",
+      "tagClass": "",
+      "result": "100+",
+      "resultSub": "Warm leads generated"
+    },
+    {
+      "num": "04",
+      "name": "Startup Spotlight",
+      "sub": "Exclusive paid startup podcast. 8-day shoot, 7 founders, 14 promo creatives, complete narrative curation & production.",
+      "type": "Program",
+      "tagClass": "red",
+      "result": "48",
+      "resultSub": "Registrations · ₹15K ticket"
+    }
+  ],
   "tools": {
     "design": [
       "Adobe Photoshop",
+      "Adobe Audition",
       "Figma",
       "Canva",
-      "CapCut"
+      "CapCut",
+      "BrandBird"
     ],
     "marketing": [
-      "Meta Ads",
+      "Meta Ads Manager",
       "Google Ads",
-      "LinkedIn Outreach"
+      "LinkedIn Outreach",
+      "Instagram Creator Studio",
+      "WhatsApp Business"
+    ],
+    "operations": [
+      "Notion",
+      "Trello",
+      "Zoho CRM",
+      "Google Workspace",
+      "Shopify",
+      "VS Code",
+      "Perplexity AI"
     ]
   },
   "cv": [
@@ -51,48 +104,150 @@
       "id": "acc1",
       "index": "01",
       "role": "Brand Strategist & GTM Lead",
-      "company": "Waystars AI - Nepal Market Expansion",
+      "company": "Waystars AI — Nepal Market Expansion",
       "tag": "GTM Strategy",
-      "date": "2024-25",
-      "highlight": "350K+",
-      "highlightLabel": "Target Audience",
+      "tagClass": "",
+      "date": "2024–25",
+      "highlights": [
+        { "num": "350K+", "label": "CAN Info-Tech target audience" },
+        { "num": "NPR 1,500", "label": "Positioned price vs grey market NPR 499–999" }
+      ],
       "bullets": [
         "Designed Nepal GTM using the IN-SPAN diplomatic framework",
-        "Aligned with Indian Embassy Commerce Wing for B2G channels"
-      ]
+        "Aligned with Indian Embassy Commerce Wing & NICCI for B2G channels with Indian MNCs operating in Nepal",
+        "Mapped grassroots penetration across university tech clubs, Microsoft Learn Student Ambassadors, and Google Developer Groups",
+        "Designed a zero-CAC Scholar's Pack with the Indian Embassy to seed adoption among top student influencers",
+        "Identified CAN Info-Tech 2026 (350,000+ visitors) as primary acquisition event and Nepal Bharat Library (500-seat auditorium) as press launch venue",
+        "Positioned Waystars as Nepal's first officially compliant AI platform — framing it as a knowledge tool, not just a commercial product"
+      ],
+      "skills": [ "Market Research", "Diplomatic GTM", "Partnership Strategy", "Competitive Positioning", "Community Mapping" ]
+    },
+    {
+      "id": "acc2",
+      "index": "02",
+      "role": "Founder & Event Strategist",
+      "company": "BaithakX — Exclusive Startup Community",
+      "tag": "Event & GTM",
+      "tagClass": "red",
+      "date": "2023–24",
+      "highlights": [
+        { "num": "₹30 Lac", "label": "Revenue on ₹15K budget" },
+        { "num": "200×", "label": "Return on investment" },
+        { "num": "314", "label": "Community members built" }
+      ],
+      "bullets": [
+        "Designed a word-of-mouth first GTM approach leveraging existing founder networks and targeted outreach to curate the right room",
+        "Focused on getting the right 10 people in the room who would each bring 10 more — building a high-trust, high-value community from the ground up",
+        "Secured three marquee institutional partners: HSBC (financial credibility), Innovation Hub UP (government ecosystem access), and AKTU Lucknow (academic network)",
+        "Managed complete event logistics across two editions — timelines, venue coordination, approvals, ticketing, and guest experience",
+        "Designed curated goodies, custom decor, and a dedicated landing page to maintain brand consistency and drive pre-event engagement",
+        "Built BaithakX's complete brand identity from scratch — logo, colour system, typography, and creative assets across social, venue, and print collaterals",
+        "Positioned as an exclusive, invite-only community to create perceived scarcity and drive demand through aspiration rather than mass outreach"
+      ],
+      "skills": [ "Brand Identity", "Community Building", "Word-of-Mouth GTM", "Partnership Management", "Event Production", "Revenue Strategy" ]
+    },
+    {
+      "id": "acc3",
+      "index": "03",
+      "role": "Marketing & Brand Lead",
+      "company": "Greenverse — Plant-Based Air Purifier",
+      "tag": "Branding",
+      "tagClass": "",
+      "date": "2023",
+      "highlights": [
+        { "num": "100+", "label": "Design assets across 4 platforms" },
+        { "num": "100+", "label": "Warm leads generated" }
+      ],
+      "bullets": [
+        "Built complete brand identity from scratch — defining visual language, tone, and brand story across 100+ assets including standees, banners, event collaterals, and a product catalogue",
+        "Developed a B2G-led GTM strategy positioning Greenverse as a premium, luxury air purifier brand",
+        "Secured placements with government officials and institutional buyers in high-visibility spaces — building brand credibility top-down rather than relying on traditional B2C acquisition",
+        "Generated 100+ warm leads through targeted outreach and strategic institutional partnerships, converting several into multi-order sales",
+        "Designed a comprehensive investor pitch deck showcasing Greenverse's value proposition and growth potential, supporting fundraising conversations"
+      ],
+      "skills": [ "Brand Identity Design", "B2G GTM", "Sales & Partnerships", "Pitch Deck Design", "Print Design" ]
+    },
+    {
+      "id": "acc4",
+      "index": "04",
+      "role": "Producer & Creative Director",
+      "company": "Startup Spotlight — Exclusive Podcast Program",
+      "tag": "Program",
+      "tagClass": "red",
+      "date": "2023",
+      "highlights": [
+        { "num": "48", "label": "Registrations generated" },
+        { "num": "₹15K", "label": "Ticket size per startup" },
+        { "num": "8 Days", "label": "Shoot across 7 founders" }
+      ],
+      "bullets": [
+        "Crafted the entire program narrative — from initial paperwork and curation to story writing, every detail handled in-house",
+        "Managed venue selection, props, stage design, and all aspects of the shooting environment to provide a visually compelling backdrop",
+        "Established a distinctive brand identity — produced 14 promotional creatives and 10 videos to build interest and excitement",
+        "The 8-day shoot featured 7 founders, each sharing their stories and insights, with our team leading the shoot and directing each session",
+        "Editing outsourced due to a last-minute budget cut — but production quality was maintained throughout",
+        "With a paid podcast model and efficient promotional strategy, the program generated a strong reception — confirming the program's potential for future iterations"
+      ],
+      "skills": [ "Program Curation", "Storytelling", "Video Direction", "Venue & Production", "Brand Promotion", "Monetisation" ]
+    },
+    {
+      "id": "acc5",
+      "index": "05",
+      "role": "Event Designer & Partnership Manager",
+      "company": "G20 DIA × Startup Kumbh — MeitY / BIMTECH",
+      "tag": "Event Design",
+      "tagClass": "",
+      "date": "2023",
+      "bullets": [
+        "Managed full event design for the G20 Digital Innovation Alliance (DIA) full session at India Expo Centre & Mart, Greater Noida",
+        "Produced standees, banners, stall designs, and all media outreach collateral for Startup Kumbh partnership",
+        "Coordinated partner activation from planning through on-ground execution and co-branding",
+        "Designed the MeitY Startup Hub newsletter — published at msm.meity.gov.in",
+        "Created biography designs, report booklets, and the official Startup Kumbh booklet (B.K. Birla SDG Awards, March 2024)"
+      ],
+      "skills": [ "Event Design", "Print Collateral", "Partner Activation", "Newsletter Design", "Booklet Design" ]
     }
   ],
-  "journey": {
-    "experience": [
-      {
-        "id": "je1",
-        "role": "Marketing Lead - Strategy & GTM",
-        "company": "Webworks Co.",
-        "tags": ["ABM", "GTM Design"],
-        "date": "Nov 2025 - Now",
-        "current": true
-      }
-    ],
-    "education": [
-      {
-        "id": "edu1",
-        "status": "In Progress",
-        "degree": "MBA",
-        "uni": "Manipal University Jaipur",
-        "year": "2026"
-      }
-    ]
-  },
   "capabilities": [
     {
       "id": "01",
       "name": "Brand Identity",
-      "desc": "Logo systems and visual language across touchpoints."
+      "desc": "Logo systems, colour palettes, typography, and complete visual language across every touchpoint."
     },
     {
       "id": "02",
       "name": "GTM Strategy",
-      "desc": "Channel selection and messaging architecture from zero."
+      "desc": "Channel selection, messaging architecture, community-led and institutional growth plays — from zero."
+    },
+    {
+      "id": "03",
+      "name": "Event Design",
+      "desc": "Concept, venue, partners, collateral, and on-ground experience management end-to-end."
+    },
+    {
+      "id": "04",
+      "name": "Partnerships",
+      "desc": "Pitching and managing institutional partners from MNCs to government bodies — unlocking new channels."
+    },
+    {
+      "id": "05",
+      "name": "Content Design",
+      "desc": "Social creatives, pitch decks, booklets, newsletters built for memorability and conversion."
+    },
+    {
+      "id": "06",
+      "name": "Market Research",
+      "desc": "Competitive landscaping, audience profiling, pricing strategy to find your exact angle."
+    },
+    {
+      "id": "07",
+      "name": "Community Building",
+      "desc": "High-trust communities through curated networks, invite-only positioning, and word-of-mouth loops."
+    },
+    {
+      "id": "08",
+      "name": "Pitch & Fundraising",
+      "desc": "Investor-ready pitch decks and narrative frameworks that communicate vision and growth potential clearly."
     }
   ]
 }

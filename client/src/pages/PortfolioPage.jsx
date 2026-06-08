@@ -4,9 +4,9 @@ import Navbar from '../components/organisms/Navbar';
 import HeroSection from '../components/organisms/HeroSection';
 import MarqueeSection from '../components/organisms/MarqueeSection';
 import AboutSection from '../components/organisms/AboutSection';
+import WorkSection from '../components/organisms/WorkSection';
 import ToolsSection from '../components/organisms/ToolsSection';
 import CVSection from '../components/organisms/CVSection';
-import JourneySection from '../components/organisms/JourneySection';
 import CapabilitiesSection from '../components/organisms/CapabilitiesSection';
 import ContactSection from '../components/organisms/ContactSection';
 import Footer from '../components/organisms/Footer';
@@ -28,8 +28,7 @@ export default function PortfolioPage() {
         return res.json();
       })
       .then((payload) => {
-        // STRICT VALIDATION: Only apply payload if it is a valid portfolio structure.
-        // This prevents other local services on port 5001 from overwriting state with empty objects.
+        // STRICT VALIDATION
         if (payload && payload.profile && payload.profile.name) {
           setData(payload);
         } else {
@@ -50,9 +49,10 @@ export default function PortfolioPage() {
             e.target.classList.add('visible');
           }
         });
-      }, { threshold: 0.08 });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-      const targets = document.querySelectorAll('.reveal, .journey-entry, .edu-card');
+      // Target all elements that get scroll animated
+      const targets = document.querySelectorAll('.reveal');
       targets.forEach((el) => obs.observe(el));
 
       return () => {
@@ -72,9 +72,9 @@ export default function PortfolioPage() {
       <HeroSection profile={portfolioData.profile} />
       <MarqueeSection items={portfolioData.marquee} />
       <AboutSection stats={portfolioData.stats} />
+      <WorkSection projects={portfolioData.projects} />
       <ToolsSection tools={portfolioData.tools} />
       <CVSection cvItems={portfolioData.cv} resumeDownloadUrl={`${API_BASE_URL}/resume/download`} />
-      <JourneySection journey={portfolioData.journey} />
       <CapabilitiesSection capabilities={portfolioData.capabilities} />
       <ContactSection profile={portfolioData.profile} />
       <Footer initials={portfolioData.profile?.initials} location={portfolioData.profile?.location} />
