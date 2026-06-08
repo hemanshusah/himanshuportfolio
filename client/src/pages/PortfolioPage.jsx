@@ -28,7 +28,13 @@ export default function PortfolioPage() {
         return res.json();
       })
       .then((payload) => {
-        setData(payload);
+        // STRICT VALIDATION: Only apply payload if it is a valid portfolio structure.
+        // This prevents other local services on port 5001 from overwriting state with empty objects.
+        if (payload && payload.profile && payload.profile.name) {
+          setData(payload);
+        } else {
+          console.warn('Backend API returned invalid data structure. Keeping local fallback data.');
+        }
       })
       .catch((err) => {
         console.warn('Backend API not responding; running on local fallback data.', err.message);
