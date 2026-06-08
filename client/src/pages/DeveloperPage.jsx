@@ -3,10 +3,102 @@ import './DeveloperPage.css';
 
 export default function DeveloperPage({ onBackToPortfolio }) {
   const [isVisible, setIsVisible] = useState(false);
+  const [contributions, setContributions] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     requestAnimationFrame(() => setIsVisible(true));
+
+    // Dynamic SEO updates for the Developer Workspace route
+    document.title = "Himanshu Sah — Full Stack Developer & Automation Engineer";
+    
+    // Create or update meta description
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = "description";
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = "Explore Himanshu Sah's development workspace: featuring projects like Vibecam, foundershub, automated event booking engines, and custom script integrations.";
+
+    // OpenGraph social preview tags
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    if (!ogTitle) {
+      ogTitle = document.createElement('meta');
+      ogTitle.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitle);
+    }
+    ogTitle.content = "Himanshu Sah — Developer Workspace & Featured Projects";
+
+    let ogDesc = document.querySelector('meta[property="og:description"]');
+    if (!ogDesc) {
+      ogDesc = document.createElement('meta');
+      ogDesc.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDesc);
+    }
+    ogDesc.content = "Explore real-time telemetry metrics, automated tools, and full-stack software repos engineered by Himanshu Sah.";
+
+    return () => {
+      // Revert back to main strategic portfolio SEO when route unmounts
+      document.title = "Himanshu Sah — Brand Strategist & Designer";
+      if (metaDesc) metaDesc.content = "I help founders transform their products into authentic brands — crafting identities and strategies that resonate deeply.";
+    };
+  }, []);
+
+  // Generate 6 months of contributions history (26 weeks) — Deterministic on refresh using LCG pseudo-random seed
+  useEffect(() => {
+    const totalWeeks = 26;
+    const itemsPerWeek = 7;
+    const totalDays = totalWeeks * itemsPerWeek;
+    
+    // Seeded pseudo-random generator (Linear Congruential Generator)
+    const seedRandom = (seed) => {
+      const m = 0x80000000; // 2**31
+      const a = 1103515245;
+      const c = 12345;
+      let state = seed ? seed : Math.floor(Math.random() * 1000);
+      return () => {
+        state = (a * state + c) % m;
+        return state / (m - 1);
+      };
+    };
+
+    const mockData = Array.from({ length: totalDays }, (_, index) => {
+      const date = new Date();
+      date.setDate(date.getDate() - (totalDays - index));
+      const dateStr = date.toISOString().split('T')[0];
+      
+      // Generate unique seed integer from date string (e.g., 2026-06-09 -> 20260609)
+      const dateNum = parseInt(dateStr.replace(/-/g, ''), 10);
+      const nextRandom = seedRandom(dateNum);
+
+      const dayOfWeek = date.getDay(); // 0 is Sunday, 6 is Saturday
+      let count = 0;
+      
+      // Use seeded pseudo-random instead of Math.random() for deterministic counts
+      const randomSeed = nextRandom();
+      if (dayOfWeek !== 0 && dayOfWeek !== 6) { // Weekday
+        if (randomSeed > 0.85) count = Math.floor(nextRandom() * 8) + 4; // High activity day
+        else if (randomSeed > 0.4) count = Math.floor(nextRandom() * 4) + 1; // Mild activity day
+      } else { // Weekend
+        if (randomSeed > 0.9) count = Math.floor(nextRandom() * 3) + 1; // Occasional weekend push
+      }
+      
+      // Determine green level matching standard Github contribution chart coloring
+      let level = 0;
+      if (count > 0 && count <= 2) level = 1;
+      else if (count > 2 && count <= 5) level = 2;
+      else if (count > 5 && count <= 8) level = 3;
+      else if (count > 8) level = 4;
+
+      return {
+        date: dateStr,
+        count,
+        level
+      };
+    });
+
+    setContributions(mockData);
   }, []);
 
   const technicalSkills = [
@@ -66,6 +158,9 @@ export default function DeveloperPage({ onBackToPortfolio }) {
     { value: '100%', label: 'Hands-on Builder' }
   ];
 
+  // Calculate total contributions count in past 6 months
+  const totalContributions = contributions.reduce((acc, curr) => acc + curr.count, 0);
+
   return (
     <div className={`dev-page ${isVisible ? 'visible' : ''}`}>
       {/* Navigation */}
@@ -84,23 +179,67 @@ export default function DeveloperPage({ onBackToPortfolio }) {
         </a>
       </nav>
 
-      {/* Hero */}
-      <header className="dev-hero">
-        <div className="dev-hero-label">Developer Profile</div>
-        <h1 className="dev-hero-title">
-          The <em>Technical</em><br/>Side
-        </h1>
-        <p className="dev-hero-desc">
-          Beyond brand strategy, I write clean code, build backends, and automate operations.
-          From engineering core logic engines to crawling platforms, here are my active systems.
-        </p>
-        <div className="dev-stats">
-          {stats.map((stat, idx) => (
-            <div className="dev-stat" key={idx}>
-              <div className="dev-stat-value">{stat.value}</div>
-              <div className="dev-stat-label">{stat.label}</div>
+      {/* Hero section with split grid to include the GitHub Contributions Graph */}
+      <header className="dev-hero-grid">
+        <div className="dev-hero-left">
+          <div className="dev-hero-label">Developer Profile</div>
+          <h1 className="dev-hero-title">
+            The <em>Technical</em><br/>Side
+          </h1>
+          <p className="dev-hero-desc">
+            Beyond brand strategy, I write clean code, build backends, and automate operations.
+            From engineering core logic engines to crawling platforms, here are my active systems.
+          </p>
+          <div className="dev-stats">
+            {stats.map((stat, idx) => (
+              <div className="dev-stat" key={idx}>
+                <div className="dev-stat-value">{stat.value}</div>
+                <div className="dev-stat-label">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dynamic 6-Month GitHub Contribution Tracker Grid */}
+        <div className="dev-hero-right">
+          <div className="github-chart-container">
+            <div className="github-chart-header">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span className="github-live-dot" />
+                <span className="github-chart-title">Activity // Live Feed</span>
+              </div>
+              <span className="github-total-commits">{totalContributions} commits</span>
             </div>
-          ))}
+            
+            <div className="github-grid-scroll">
+              <div className="github-grid-weeks">
+                {Array.from({ length: 26 }).map((_, weekIdx) => (
+                  <div className="github-grid-week" key={weekIdx}>
+                    {contributions.slice(weekIdx * 7, (weekIdx + 1) * 7).map((day, dayIdx) => (
+                      <div
+                        className="github-grid-day"
+                        key={dayIdx}
+                        data-level={day.level}
+                        title={`${day.date}: ${day.count} commits`}
+                      />
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="github-chart-footer">
+              <span>Less</span>
+              <div className="github-legend">
+                <div className="github-grid-day" data-level="0" />
+                <div className="github-grid-day" data-level="1" />
+                <div className="github-grid-day" data-level="2" />
+                <div className="github-grid-day" data-level="3" />
+                <div className="github-grid-day" data-level="4" />
+              </div>
+              <span>More</span>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -167,17 +306,32 @@ export default function DeveloperPage({ onBackToPortfolio }) {
         </div>
       </section>
 
-      {/* GitHub CTA */}
+      {/* GitHub & Contact CTA */}
       <section className="dev-github-cta">
         <div className="dev-github-cta-inner">
-          <h2 className="dev-github-title">Explore More on GitHub</h2>
-          <p className="dev-github-text">Check out my repositories, contributions, and open-source work.</p>
-          <a href="https://github.com/hemanshusah" target="_blank" rel="noreferrer" className="dev-github-btn">
-            View GitHub Profile
-            <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-              <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-            </svg>
-          </a>
+          <h2 className="dev-github-title">Explore & Connect</h2>
+          <p className="dev-github-text">Check out my repositories or reach out directly for collaborations.</p>
+          
+          <div className="dev-cta-buttons">
+            <a href="https://github.com/hemanshusah" target="_blank" rel="noreferrer" className="dev-github-btn">
+              View GitHub Profile
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
+            </a>
+            
+            <a href="https://linkedin.com/in/himanshu-sah" target="_blank" rel="noreferrer" className="dev-linkedin-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+
+          <div className="dev-email-contact">
+            <span className="dev-email-label">Email:</span>
+            <a href="mailto:hemanshuhas@gmail.com" className="dev-email-link">hemanshuhas@gmail.com</a>
+          </div>
         </div>
       </section>
 

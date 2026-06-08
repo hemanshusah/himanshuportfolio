@@ -80,10 +80,20 @@
     background: var(--dev-green-dim);
 }
 
-/* ── HERO ── */
-.dev-hero {
+/* ── HERO GRID ── */
+.dev-hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
     padding: 6rem 3rem 5rem;
-    max-width: 900px;
+    align-items: center;
+}
+
+@media (max-width: 1024px) {
+    .dev-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
 }
 
 .dev-hero-label {
@@ -129,6 +139,117 @@
     max-width: 560px;
     font-weight: 300;
     margin: 0;
+}
+
+/* ── GITHUB CHART ── */
+.github-chart-container {
+    background: var(--dev-surface);
+    border: 1px solid var(--dev-border);
+    padding: 2rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.github-chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.github-chart-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    color: var(--dev-text-dim);
+    text-transform: uppercase;
+}
+
+.github-live-dot {
+    width: 7px;
+    height: 7px;
+    background-color: var(--dev-green);
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px var(--dev-green);
+    animation: githubLivePulse 2s infinite ease-in-out;
+}
+
+@keyframes githubLivePulse {
+    0%, 100% {
+        transform: scale(0.9);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.25);
+        opacity: 1;
+        box-shadow: 0 0 12px var(--dev-green);
+    }
+}
+
+.github-total-commits {
+    font-size: 0.85rem;
+    color: var(--dev-green);
+    font-weight: 700;
+}
+
+.github-grid-scroll {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.github-grid-scroll::-webkit-scrollbar {
+    height: 4px;
+}
+
+.github-grid-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.github-grid-scroll::-webkit-scrollbar-thumb {
+    background: var(--dev-border);
+    border-radius: 2px;
+}
+
+.github-grid-weeks {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 4px;
+}
+
+.github-grid-week {
+    display: grid;
+    grid-template-rows: repeat(7, 10px);
+    gap: 4px;
+}
+
+.github-grid-day {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    transition: background 0.25s ease;
+}
+
+.github-grid-day[data-level="1"] { background: #0e4429; }
+.github-grid-day[data-level="2"] { background: #006d32; }
+.github-grid-day[data-level="3"] { background: #26a641; }
+.github-grid-day[data-level="4"] { background: #39d353; }
+
+.github-chart-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    color: var(--dev-text-dim);
+}
+
+.github-legend {
+    display: flex;
+    gap: 3px;
 }
 
 /* ── STATS ── */
@@ -400,6 +521,7 @@
 .dev-github-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.8rem;
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 700;
@@ -420,6 +542,74 @@
     background: #00ff66;
     box-shadow: 0 0 20px rgba(0, 232, 94, 0.3);
     transform: translateY(-1px);
+}
+
+.dev-cta-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 5;
+}
+
+.dev-linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--dev-text);
+    background: transparent;
+    border: 1px solid var(--dev-green-border);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.dev-linkedin-btn:hover {
+    color: var(--dev-green);
+    background: var(--dev-green-dim);
+    border-color: var(--dev-green);
+    box-shadow: 0 0 20px rgba(0, 232, 94, 0.15);
+    transform: translateY(-1px);
+}
+
+.dev-email-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 5;
+}
+
+.dev-email-label {
+    color: var(--dev-text-dim);
+}
+
+.dev-email-link {
+    color: var(--dev-green);
+    text-decoration: none;
+    transition: color 0.3s, border-color 0.3s;
+    border-bottom: 1px dashed var(--dev-green-border);
+    padding-bottom: 2px;
+}
+
+.dev-email-link:hover {
+    color: #00ff66;
+    border-bottom-color: #00ff66;
 }
 
 /* ── FOOTER ── */

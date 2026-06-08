@@ -56,7 +56,7 @@ body {
 
 /* NAV */
 nav {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -241,10 +241,10 @@ nav {
     border-color: var(--red)
 }
 
-/* Developer portal icon — positioned top-right, clear of the header with a flowing border stroke animation */
+/* Developer portal icon — fixed positioning clear of the top header bounds */
 .dev-portal-icon {
-    position: absolute;
-    top: 7rem;
+    position: fixed;
+    top: 6rem;
     right: 3rem;
     width: 42px;
     height: 42px;
@@ -256,7 +256,7 @@ nav {
     color: rgba(245, 240, 232, .4);
     cursor: pointer;
     transition: all .3s ease;
-    z-index: 90;
+    z-index: 101;
     border: none;
     outline: none;
 }
@@ -327,7 +327,7 @@ nav {
 
 @media (max-width: 768px) {
     .dev-portal-icon {
-        top: 6rem;
+        top: 5rem;
         right: 1.5rem;
         width: 36px;
         height: 36px;
