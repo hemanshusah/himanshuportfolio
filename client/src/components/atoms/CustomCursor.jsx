@@ -4,6 +4,7 @@ import './CustomCursor.css';
 export default function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [ringPosition, setRingPosition] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
   const ringRef = useRef({ x: 0, y: 0 });
   const requestRef = useRef(null);
@@ -20,9 +21,28 @@ export default function CustomCursor() {
       setPosition({ x: e.clientX, y: e.clientY });
     };
 
+    const onMouseOver = (e) => {
+      const target = e.target;
+      if (target && (
+        target.closest('a') ||
+        target.closest('button') ||
+        target.closest('label') ||
+        target.closest('.acc-trigger') ||
+        target.closest('.cv-dl') ||
+        target.closest('.contact-link') ||
+        target.closest('.project-item')
+      )) {
+        setIsHovered(true);
+      } else {
+        setIsHovered(false);
+      }
+    };
+
     window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseover', onMouseOver);
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseover', onMouseOver);
     };
   }, []);
 
@@ -50,8 +70,8 @@ export default function CustomCursor() {
 
   return (
     <>
-      <div className="cursor" style={{ left: `${position.x}px`, top: `${position.y}px` }}></div>
-      <div className="cursor-ring" style={{ left: `${ringPosition.x}px`, top: `${ringPosition.y}px` }}></div>
+      <div className={`cursor ${isHovered ? 'hovered' : ''}`} style={{ left: `${position.x}px`, top: `${position.y}px` }}></div>
+      <div className={`cursor-ring ${isHovered ? 'hovered' : ''}`} style={{ left: `${ringPosition.x}px`, top: `${ringPosition.y}px` }}></div>
     </>
   );
 }

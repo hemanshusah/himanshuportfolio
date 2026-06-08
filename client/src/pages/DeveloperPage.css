@@ -1,0 +1,467 @@
+/* ── DEVELOPER PAGE — Clean Black & Green Portfolio ── */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+.dev-page {
+    --dev-green: #00e85e;
+    --dev-green-dim: rgba(0, 232, 94, 0.08);
+    --dev-green-border: rgba(0, 232, 94, 0.15);
+    --dev-bg: #060606;
+    --dev-surface: #0c0c0c;
+    --dev-surface-2: #111111;
+    --dev-text: #e8e8e8;
+    --dev-text-dim: rgba(232, 232, 232, 0.45);
+    --dev-border: rgba(255, 255, 255, 0.06);
+
+    background: var(--dev-bg);
+    color: var(--dev-text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    cursor: auto;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .5s ease, transform .5s ease;
+}
+
+.dev-page.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── NAVIGATION ── */
+.dev-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    border-bottom: 1px solid var(--dev-border);
+    position: sticky;
+    top: 0;
+    background: rgba(6, 6, 6, 0.92);
+    backdrop-filter: blur(16px);
+    z-index: 100;
+}
+
+.dev-nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: none;
+    border: 1px solid var(--dev-border);
+    color: var(--dev-text-dim);
+    font-family: inherit;
+    font-size: 0.82rem;
+    padding: 0.55rem 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.02em;
+}
+
+.dev-nav-back:hover {
+    color: var(--dev-text);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dev-nav-github {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--dev-text-dim);
+    text-decoration: none;
+    font-size: 0.82rem;
+    padding: 0.55rem 1.2rem;
+    border: 1px solid var(--dev-border);
+    transition: all 0.3s;
+}
+
+.dev-nav-github:hover {
+    color: var(--dev-green);
+    border-color: var(--dev-green-border);
+    background: var(--dev-green-dim);
+}
+
+/* ── HERO ── */
+.dev-hero {
+    padding: 6rem 3rem 5rem;
+    max-width: 900px;
+}
+
+.dev-hero-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--dev-green);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.dev-hero-label::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--dev-green);
+    border-radius: 50%;
+}
+
+.dev-hero-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(60px, 10vw, 120px);
+    line-height: 0.88;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin: 0 0 2rem 0;
+}
+
+.dev-hero-title em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--dev-green);
+}
+
+.dev-hero-desc {
+    font-size: 1rem;
+    color: var(--dev-text-dim);
+    line-height: 1.8;
+    max-width: 560px;
+    font-weight: 300;
+    margin: 0;
+}
+
+/* ── STATS ── */
+.dev-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--dev-border);
+}
+
+.dev-stat-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 2.2rem;
+    color: var(--dev-green);
+    line-height: 1;
+}
+
+.dev-stat-label {
+    font-size: 0.72rem;
+    color: var(--dev-text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.4rem;
+}
+
+/* ── SECTIONS ── */
+.dev-section {
+    padding: 5rem 3rem;
+    border-top: 1px solid var(--dev-border);
+}
+
+.recruiter-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.recruiter-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--dev-green);
+    transition: width 0.3s ease;
+}
+
+.recruiter-card:hover::before {
+    width: 100%;
+}
+
+.recruiter-card:hover {
+    border-color: var(--dev-green-border) !important;
+    background: rgba(0, 232, 94, 0.02) !important;
+}
+
+.dev-section-header {
+    margin-bottom: 3rem;
+}
+
+.dev-section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--dev-green);
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.dev-section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(42px, 6vw, 80px);
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+/* ── SKILLS GRID ── */
+.dev-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+.dev-skill-category {
+    background: var(--dev-surface);
+    border: 1px solid var(--dev-border);
+    padding: 2rem 1.8rem;
+    transition: border-color 0.3s;
+}
+
+.dev-skill-category:hover {
+    border-color: var(--dev-green-border);
+}
+
+.dev-skill-cat-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--dev-green);
+    margin: 0 0 1.2rem 0;
+}
+
+.dev-skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.dev-skill-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 400;
+    padding: 0.35rem 0.8rem;
+    background: var(--dev-green-dim);
+    border: 1px solid var(--dev-green-border);
+    color: rgba(232, 232, 232, 0.7);
+    letter-spacing: 0.02em;
+}
+
+/* ── PROJECTS GRID ── */
+.dev-projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .dev-projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dev-project-card {
+    background: var(--dev-surface);
+    border: 1px solid var(--dev-border);
+    padding: 2.5rem 2rem;
+    text-decoration: none;
+    color: var(--dev-text);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.dev-project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--dev-green);
+    transition: width 0.4s;
+}
+
+.dev-project-card:hover::before {
+    width: 100%;
+}
+
+.dev-project-card:hover {
+    border-color: var(--dev-green-border);
+    background: rgba(0, 232, 94, 0.02);
+}
+
+.dev-project-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: rgba(0, 232, 94, 0.35);
+    letter-spacing: 0.1em;
+}
+
+.dev-project-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin: 0;
+    line-height: 1;
+}
+
+.dev-project-desc {
+    font-size: 0.82rem;
+    color: var(--dev-text-dim);
+    line-height: 1.7;
+    margin: 0;
+    font-weight: 300;
+    flex-grow: 1;
+}
+
+.dev-project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+}
+
+.dev-tech-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    padding: 0.25rem 0.65rem;
+    border: 1px solid var(--dev-green-border);
+    color: var(--dev-green);
+    letter-spacing: 0.04em;
+}
+
+.dev-project-link-arrow {
+    color: rgba(0, 232, 94, 0.25);
+    transition: all 0.3s;
+    align-self: flex-end;
+}
+
+.dev-project-card:hover .dev-project-link-arrow {
+    color: var(--dev-green);
+    transform: translateX(4px);
+}
+
+/* ── GITHUB CTA ── */
+.dev-github-cta {
+    padding: 5rem 3rem;
+    border-top: 1px solid var(--dev-border);
+}
+
+.dev-github-cta-inner {
+    background: var(--dev-surface);
+    border: 1px solid var(--dev-green-border);
+    padding: 4rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.dev-github-cta-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(0, 232, 94, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.dev-github-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin: 0 0 1rem 0;
+    position: relative;
+}
+
+.dev-github-text {
+    font-size: 0.9rem;
+    color: var(--dev-text-dim);
+    margin: 0 0 2.5rem 0;
+    font-weight: 300;
+    position: relative;
+}
+
+.dev-github-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--dev-bg);
+    background: var(--dev-green);
+    border: none;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.dev-github-btn:hover {
+    background: #00ff66;
+    box-shadow: 0 0 20px rgba(0, 232, 94, 0.3);
+    transform: translateY(-1px);
+}
+
+/* ── FOOTER ── */
+.dev-footer {
+    border-top: 1px solid var(--dev-border);
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.dev-footer-accent {
+    color: var(--dev-green);
+}
+
+.dev-footer-copy {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    color: rgba(232, 232, 232, 0.18);
+    letter-spacing: 0.08em;
+    text-transform: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .dev-nav { padding: 1rem 1.5rem; }
+    .dev-hero { padding: 4rem 1.5rem 3rem; }
+    .dev-section { padding: 3rem 1.5rem; }
+    .dev-github-cta { padding: 3rem 1.5rem; }
+    .dev-github-cta-inner { padding: 3rem 1.5rem; }
+    .dev-footer { padding: 1.5rem; }
+    .dev-stats { gap: 1.5rem; flex-wrap: wrap; }
+    .dev-skills-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+    .dev-skills-grid { grid-template-columns: 1fr; }
+    .dev-stats { gap: 1rem; }
+}

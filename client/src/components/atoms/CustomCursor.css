@@ -21,3 +21,13 @@
   transform: translate(-50%, -50%);
   transition: width .3s, height .3s;
 }
+
+.cursor.hovered {
+  width: 20px;
+  height: 20px;
+}
+
+.cursor-ring.hovered {
+  width: 58px;
+  height: 58px;
+}

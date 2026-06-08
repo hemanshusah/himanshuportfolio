@@ -17,7 +17,7 @@ export default function CVSection({ cvItems = [], resumeDownloadUrl }) {
           <p className="cv-sticky-text">Click any role to expand the full details, responsibilities, outcomes, and skills used.</p>
           <a href={resumeDownloadUrl || '#'} className="cv-dl" download>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M8 1V11M8 11L4 7M8 11L12 7M2 14H14" stroke="currentColor" stroke-width="1.3" strokeLinecap="round" />
+              <path d="M8 1V11M8 11L4 7M8 11L12 7M2 14H14" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
             </svg>
             Download CV
           </a>
