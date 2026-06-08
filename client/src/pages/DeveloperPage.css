@@ -521,6 +521,7 @@
 .dev-github-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.8rem;
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 700;
@@ -541,6 +542,74 @@
     background: #00ff66;
     box-shadow: 0 0 20px rgba(0, 232, 94, 0.3);
     transform: translateY(-1px);
+}
+
+.dev-cta-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 5;
+}
+
+.dev-linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--dev-text);
+    background: transparent;
+    border: 1px solid var(--dev-green-border);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.dev-linkedin-btn:hover {
+    color: var(--dev-green);
+    background: var(--dev-green-dim);
+    border-color: var(--dev-green);
+    box-shadow: 0 0 20px rgba(0, 232, 94, 0.15);
+    transform: translateY(-1px);
+}
+
+.dev-email-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 5;
+}
+
+.dev-email-label {
+    color: var(--dev-text-dim);
+}
+
+.dev-email-link {
+    color: var(--dev-green);
+    text-decoration: none;
+    transition: color 0.3s, border-color 0.3s;
+    border-bottom: 1px dashed var(--dev-green-border);
+    padding-bottom: 2px;
+}
+
+.dev-email-link:hover {
+    color: #00ff66;
+    border-bottom-color: #00ff66;
 }
 
 /* ── FOOTER ── */
