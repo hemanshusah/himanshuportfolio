@@ -11,13 +11,17 @@ import CapabilitiesSection from '../components/organisms/CapabilitiesSection';
 import ContactSection from '../components/organisms/ContactSection';
 import Footer from '../components/organisms/Footer';
 
+// Import local static copy of the data as a fallback to guarantee instant loading
+import fallbackData from '../data/portfolioData.json';
+
 const API_BASE_URL = 'http://localhost:5001/api';
 
 export default function PortfolioPage() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // Initialize state directly with the local data to bypass loading screen delays
+  const [data, setData] = useState(fallbackData);
 
   useEffect(() => {
+    // Attempt background validation against the backend
     fetch(`${API_BASE_URL}/portfolio`)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch data');
@@ -25,19 +29,14 @@ export default function PortfolioPage() {
       })
       .then((payload) => {
         setData(payload);
-        setLoading(false);
       })
       .catch((err) => {
-        console.error('API fetch failed, falling back to static content', err);
-        setLoading(false);
+        console.warn('Backend API not responding; running on local fallback data.', err.message);
       });
   }, []);
 
   // REVEAL ANIMATIONS GLOBAL OBSERVER
   useEffect(() => {
-    if (loading || !data) return;
-
-    // Use a small timeout to let React finish rendering the DOM
     const timer = setTimeout(() => {
       const obs = new IntersectionObserver((entries) => {
         entries.forEach((e) => {
@@ -56,27 +55,9 @@ export default function PortfolioPage() {
     }, 100);
 
     return () => clearTimeout(timer);
-  }, [loading, data]);
+  }, [data]);
 
-  if (loading) {
-    return (
-      <div style={{
-        display: 'flex',
-        height: '100vh',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background: '#0A0A0A',
-        color: '#F5F0E8',
-        fontFamily: "'Barlow Condensed', sans-serif",
-        fontSize: '2rem',
-        letterSpacing: '0.1em'
-      }}>
-        LOADING...
-      </div>
-    );
-  }
-
-  const portfolioData = data || {};
+  const portfolioData = data || fallbackData;
 
   return (
     <>

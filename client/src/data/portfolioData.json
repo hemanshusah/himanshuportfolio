@@ -1,0 +1,98 @@
+{
+  "profile": {
+    "name": "Himanshu Sah",
+    "initials": "HS",
+    "role": "Brand Strategist & Marketer",
+    "description": "I help founders transform their products into authentic brands crafting identities and strategies that resonate deeply and build lasting connections.",
+    "email": "hemanshuhas@gmail.com",
+    "location": "Bengaluru, India"
+  },
+  "stats": [
+    {
+      "value": 200,
+      "suffix": "x",
+      "label": "ROI Delivered"
+    },
+    {
+      "value": 314,
+      "suffix": "+",
+      "label": "Community Built"
+    },
+    {
+      "value": 100,
+      "suffix": "+",
+      "label": "Design Assets"
+    }
+  ],
+  "marquee": [
+    "Brand Strategy",
+    "GTM Planning",
+    "Visual Identity",
+    "Community Growth",
+    "Event Design",
+    "Partnership Strategy",
+    "Market Expansion"
+  ],
+  "tools": {
+    "design": [
+      "Adobe Photoshop",
+      "Figma",
+      "Canva",
+      "CapCut"
+    ],
+    "marketing": [
+      "Meta Ads",
+      "Google Ads",
+      "LinkedIn Outreach"
+    ]
+  },
+  "cv": [
+    {
+      "id": "acc1",
+      "index": "01",
+      "role": "Brand Strategist & GTM Lead",
+      "company": "Waystars AI - Nepal Market Expansion",
+      "tag": "GTM Strategy",
+      "date": "2024-25",
+      "highlight": "350K+",
+      "highlightLabel": "Target Audience",
+      "bullets": [
+        "Designed Nepal GTM using the IN-SPAN diplomatic framework",
+        "Aligned with Indian Embassy Commerce Wing for B2G channels"
+      ]
+    }
+  ],
+  "journey": {
+    "experience": [
+      {
+        "id": "je1",
+        "role": "Marketing Lead - Strategy & GTM",
+        "company": "Webworks Co.",
+        "tags": ["ABM", "GTM Design"],
+        "date": "Nov 2025 - Now",
+        "current": true
+      }
+    ],
+    "education": [
+      {
+        "id": "edu1",
+        "status": "In Progress",
+        "degree": "MBA",
+        "uni": "Manipal University Jaipur",
+        "year": "2026"
+      }
+    ]
+  },
+  "capabilities": [
+    {
+      "id": "01",
+      "name": "Brand Identity",
+      "desc": "Logo systems and visual language across touchpoints."
+    },
+    {
+      "id": "02",
+      "name": "GTM Strategy",
+      "desc": "Channel selection and messaging architecture from zero."
+    }
+  ]
+}
