@@ -299,26 +299,58 @@ nav {
     }
 }
 
+@keyframes devSymbolBreathe {
+    0%, 100% {
+        filter: drop-shadow(0 0 1px rgba(0, 255, 102, .05));
+        color: rgba(245, 240, 232, .35);
+    }
+    50% {
+        filter: drop-shadow(0 0 5px rgba(0, 255, 102, .45));
+        color: rgba(0, 255, 102, .6);
+    }
+}
+
+.dev-portal-icon .dev-icon-code {
+    transition: filter .3s ease, color .3s ease;
+    animation: devSymbolBreathe 4s ease-in-out infinite;
+}
+
 .dev-portal-icon:hover {
+    color: #00ff66;
+    box-shadow: 0 0 15px rgba(0, 255, 102, .25);
+}
+
+.dev-portal-icon:hover .dev-icon-code {
+    animation: none;
+    filter: drop-shadow(0 0 4px rgba(0, 255, 102, .8));
     color: #00ff66;
 }
 
 .dev-portal-icon:hover .dev-border-rect {
     stroke: rgba(0, 255, 102, .2);
+    filter: drop-shadow(0 0 2px rgba(0, 255, 102, .3));
 }
 
 .dev-portal-icon:hover .dev-border-flow {
     opacity: 1;
     stroke-width: 2;
-    /* Speed up is removed to keep animation timeline continuous, or we keep it running at 3s to be fully seamless */
+    filter: drop-shadow(0 0 3px rgba(0, 255, 102, .6));
 }
 
 .dev-portal-icon.active {
+    color: #00ff66;
+    box-shadow: 0 0 25px rgba(0, 255, 102, .45);
+}
+
+.dev-portal-icon.active .dev-icon-code {
+    animation: none;
+    filter: drop-shadow(0 0 6px rgba(0, 255, 102, .9));
     color: #00ff66;
 }
 
 .dev-portal-icon.active .dev-border-rect {
     stroke: #00ff66;
+    filter: drop-shadow(0 0 4px rgba(0, 255, 102, .5));
 }
 
 .dev-portal-icon.active .dev-border-flow {
